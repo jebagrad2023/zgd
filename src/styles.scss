@@ -1,0 +1,91 @@
+@import 'effects';
+
+@font-face {
+  font-family: PixelMplus12 Regular;
+  src: url('https://cdn.leafscape.be/PixelMplus/PixelMplus12-Regular_web.woff2')
+    format('woff2');
+}
+
+@font-face {
+  font-family: PixelMplus12 Bold;
+  src: url('https://cdn.leafscape.be/PixelMplus/PixelMplus12-Bold_web.woff2')
+    format('woff2');
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'PixelMplus12 Bold';
+
+  animation-name: fadein;
+  animation-duration: 2s;
+}
+
+h1 {
+  color: #620;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'PixelMplus12 Regular';
+  background-image: url('@zgd/images/cornfield-bg.png');
+  background-size: auto 100vh;
+  background-attachment: fixed;
+  overflow: scroll;
+  min-width: 800px;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  padding: 8px 32px;
+}
+
+#container {
+  box-sizing: border-box;
+  min-width: 600px;
+  width: 1200px;
+  height: auto;
+  background-color: #fd0;
+  padding: 0 32px 64px 32px;
+  border-radius: 64px 64px 8px 64px;
+  overflow: hidden;
+
+  animation-name: fadein;
+  animation-duration: 2s;
+}
+
+.messageBoard {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+}
+
+.messageColumn {
+  width: 100%;
+}
+
+.message {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px;
+  background-color: #ff0;
+  border-radius: 8px;
+  text-align: justify;
+  margin-bottom: 8px;
+  font-size: 14px;
+
+  animation-name: fadeinDelayed;
+  animation-duration: 2s;
+
+  img {
+    width: 100%;
+  }
+}
+
+.messageBy {
+  margin-top: 10px;
+  text-align: right;
+}
