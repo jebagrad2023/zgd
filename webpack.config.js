@@ -7,7 +7,7 @@ module.exports = () => {
   const config = {
     entry: './src/index.tsx',
     output: {
-      path: path.join(__dirname, 'public'),
+      path: path.join(__dirname, 'public/public'),
       filename: 'main.js',
       publicPath: '/public',
     },
