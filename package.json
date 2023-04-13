@@ -3,7 +3,8 @@
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "serve": "webpack serve --mode=development --node-env=development",
-    "fmt": "prettier --write './src/**/*.{js,ts,tsx}' '*.js'",
+    "fmt": "prettier --write './**/*.{js,ts,tsx}'",
+    "fmtcheck": "prettier --check './**/*.{js,ts,tsx}'",
     "lint": "eslint './src/**/*.{js,ts,tsx}'",
     "fix": "eslint --fix './src/**/*.{js,ts,tsx}'",
     "typecheck": "tsc --noEmit"
