@@ -17,7 +17,7 @@ const sample = [
   {
     name: 'Gentle Kernel 3',
     text: 'One. Cob. Mind.',
-    image: '/images/kernel.jpg',
+    image: 'images/kernel.jpg',
   },
   {
     name: 'Gentle Kernel 4',
@@ -26,7 +26,7 @@ const sample = [
   {
     name: 'Gentle Kernel 5',
     text: 'One. Cob. Mind.',
-    image: '/images/zea.png',
+    image: 'images/zea.png',
   },
 ]
 
