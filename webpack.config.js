@@ -1,7 +1,6 @@
 const path = require('path')
 
 const isProduction = process.env.NODE_ENV == 'production'
-const pathPrefix = process.env.PATH_PREFIX || '/'
 const stylesHandler = 'style-loader'
 
 module.exports = () => {
@@ -9,7 +8,7 @@ module.exports = () => {
     entry: './src/index.tsx',
     output: {
       filename: 'main.js',
-      publicPath: pathPrefix+'public/',
+      publicPath: '/public/',
     },
     module: {
       rules: [

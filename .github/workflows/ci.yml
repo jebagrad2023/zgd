@@ -28,8 +28,6 @@ jobs:
         run: yarn
       - name: Build
         run: yarn build
-        env:
-          PATH_PREFIX: zgd
 
       - name: Deploy
         if: github.event_name == 'push'
