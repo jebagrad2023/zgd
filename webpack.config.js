@@ -9,7 +9,7 @@ module.exports = () => {
     entry: './src/index.tsx',
     output: {
       filename: 'main.js',
-      publicPath: pathPrefix+'public/',
+      publicPath: pathPrefix + 'public/',
     },
     module: {
       rules: [
