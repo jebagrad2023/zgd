@@ -9,7 +9,7 @@ module.exports = () => {
     output: {
       path: path.join(__dirname, 'public/public'),
       filename: 'main.js',
-      publicPath: '/public',
+      publicPath: 'public/',
     },
     module: {
       rules: [
