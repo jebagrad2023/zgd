@@ -1,15 +1,15 @@
 const path = require('path')
 
 const isProduction = process.env.NODE_ENV == 'production'
+const pathPrefix = process.env.PATH_PREFIX || '/'
 const stylesHandler = 'style-loader'
 
 module.exports = () => {
   const config = {
     entry: './src/index.tsx',
     output: {
-      path: path.join(__dirname, 'public/public'),
       filename: 'main.js',
-      publicPath: 'public/',
+      publicPath: pathPrefix+'public/',
     },
     module: {
       rules: [
@@ -48,9 +48,7 @@ module.exports = () => {
     devServer: {
       open: false,
       host: '0.0.0.0',
-      port: 8081,
-      allowedHosts: ['localhost:8080'],
-      historyApiFallback: true,
+      port: 8080,
     },
     watchOptions: {
       ignored: [path.resolve(__dirname, '**/.*.swp')],
