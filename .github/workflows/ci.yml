@@ -5,6 +5,9 @@ on:
       - main
   pull_request:
 
+permissions:
+  contents: write
+
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -29,7 +32,7 @@ jobs:
       - name: Deploy
         if: github.event_name == 'push'
         run: |
-          cp -r public output
+          cp -r public/* output/
           cd output
           git config user.name "Doramanjyu"
           git config user.email "24859285+Doramanjyu@users.noreply.github.com"
