@@ -26,28 +26,34 @@ h1 {
   text-align: center;
 }
 
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
   font-family: 'PixelMplus12 Regular';
   background-image: url('@zgd/images/cornfield-bg.png');
   background-size: auto 100vh;
   background-attachment: fixed;
-  overflow: scroll;
-  min-width: 800px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 #root {
-  display: flex;
-  justify-content: center;
   padding: 8px 32px;
+  width: 100%;
 }
 
 #container {
-  box-sizing: border-box;
-  min-width: 600px;
-  width: 1200px;
-  height: auto;
+  margin: 0 auto;
+  max-width: 1200px;
   background-color: #fd0;
   padding: 0 32px 64px 32px;
   border-radius: 64px 64px 8px 64px;
@@ -60,15 +66,23 @@ body {
 .messageBoard {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
   gap: 8px;
 }
 
 .messageColumn {
-  width: 100%;
+  flex-grow: 1;
+  width: 200px;
+}
+
+@media (max-width: 800px) {
+  .messageColumn {
+    width: 400px;
+  }
 }
 
 .message {
-  box-sizing: border-box;
   width: 100%;
   padding: 16px;
   background-color: #ff0;
