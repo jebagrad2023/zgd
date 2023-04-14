@@ -7,10 +7,15 @@ import '@zgd/styles.scss'
 
 const Root = (): JSX.Element => {
   return (
-    <div id="container">
-      <h1>One. Cob. Mind.</h1>
-      <MessageBoard />
-    </div>
+    <>
+      <div id="container">
+        <div id="mainLogo" />
+        <div id="main">
+          <h1>One. Cob. Mind.</h1>
+          <MessageBoard />
+        </div>
+      </div>
+    </>
   )
 }
 
