@@ -15,6 +15,8 @@
 h1,
 h2,
 h3 {
+  margin: 0;
+  padding: 8px 0;
   font-family: 'PixelMplus12 Bold';
 
   animation-name: fadein;
@@ -54,11 +56,21 @@ body {
 #container {
   margin: 0 auto;
   max-width: 1200px;
+}
+
+#mainLogo {
+  width: 100%;
+  height: calc(min(100vw, 1200px) / 4);
+  background-image: url('@zgd/images/main-logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#main {
   background-color: #fd0;
   padding: 0 32px 64px 32px;
   border-radius: 64px 64px 8px 64px;
-  overflow: hidden;
-
   animation-name: fadein;
   animation-duration: 2s;
 }
