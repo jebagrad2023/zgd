@@ -31,7 +31,7 @@ jobs:
         run: yarn messages
 
       - name: Deploy
-        if: github.event_name == 'push'
+        if: github.event_name != 'pull_request'
         run: |
           cd data
           git config user.name "Doramanjyu"
