@@ -28,6 +28,8 @@ jobs:
       - name: Install deps
         run: yarn
       - name: Fetch messages
+        env:
+          MESSAGES_CSV_URL: ${{ secrets.MESSAGES_CSV_URL }}
         run: yarn messages
 
       - name: Deploy
