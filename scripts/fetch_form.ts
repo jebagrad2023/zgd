@@ -32,6 +32,9 @@ const main = async () => {
         }
         return dd[1]
       })()
+      if (d[5] !== '') {
+        return null
+      }
       return {
         name: d[1],
         text: d[2],
