@@ -1,4 +1,10 @@
 import React from 'react'
+import useSWR from 'swr'
+
+import { fetcher } from '@zgd/utils/fetcher'
+
+const messagesURL =
+  'https://raw.githubusercontent.com/Doramanjyu/zgd/data/messages.json'
 
 type MessageProps = {
   name: string
@@ -26,17 +32,30 @@ const MessageColumn = ({ messages }: Props): JSX.Element => (
   </div>
 )
 
-export const MessageBoard = ({ messages }: Props): JSX.Element => {
-  const numColumns = 3
-  const messagesPerColumn = Math.ceil(messages.length / numColumns)
-  const columns = Array.from(Array(numColumns).keys()).map((i) =>
-    messages.slice(i * messagesPerColumn, (i + 1) * messagesPerColumn),
+export const MessageBoard = (): JSX.Element => {
+  const { data: messages, error } = useSWR<MessageProps[], string>(
+    messagesURL,
+    fetcher(),
+    {
+      revalidateOnFocus: false,
+    },
   )
+
+  const numColumns = 3
+  const messagesPerColumn = !messages
+    ? 0
+    : Math.ceil(messages.length / numColumns)
+  const columns = !messages
+    ? []
+    : Array.from(Array(numColumns).keys()).map((i) =>
+        messages.slice(i * messagesPerColumn, (i + 1) * messagesPerColumn),
+      )
   return (
     <div className="messageBoard">
-      {columns.map((c, i) => (
-        <MessageColumn messages={c} key={i} />
-      ))}
+      {!error ? null : `error: ${error.toString()}`}
+      {!messages
+        ? null
+        : columns.map((c, i) => <MessageColumn messages={c} key={i} />)}
     </div>
   )
 }
