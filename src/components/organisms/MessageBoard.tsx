@@ -16,9 +16,22 @@ type Props = {
   messages: MessageProps[]
 }
 
+const imgLoaded = (e: React.SyntheticEvent<HTMLImageElement>) => {
+  const img = e.target as HTMLImageElement
+  const ratio = img.naturalHeight / img.naturalWidth
+  img.style.height = `${img.width * ratio}px`
+}
+
 const Message = ({ name, text, image }: MessageProps): JSX.Element => (
   <div className="message">
-    {!image ? null : <img src={image} />}
+    {!image ? null : (
+      <img
+        src={image}
+        loading="lazy"
+        onLoad={imgLoaded}
+        style={{ height: 0 }}
+      />
+    )}
     <div className="messageContents">{text}</div>
     <div className="messageBy">{name}</div>
   </div>
