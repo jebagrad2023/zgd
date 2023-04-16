@@ -32,7 +32,7 @@ const main = async () => {
         }
         return dd[1]
       })()
-      if (d[5] !== '') {
+      if (d[4] !== 'Ready to publish') {
         return null
       }
       return {
