@@ -33,12 +33,15 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Deploy
-        if: github.event_name == 'push'
+      - name: Prepare deploy
         run: |
           mkdir -p gh-pages/public
           cp -r public/* gh-pages/
           cp -r dist/* gh-pages/public/
+
+      - name: Deploy
+        if: github.event_name == 'push'
+        run: |
           cd gh-pages
           git config user.name "Doramanjyu"
           git config user.email "24859285+Doramanjyu@users.noreply.github.com"
