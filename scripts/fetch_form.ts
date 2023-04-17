@@ -1,6 +1,7 @@
 const axios = require('axios')
 const csv = require('csv/sync')
 const fsPromise = require('node:fs/promises')
+const rateLimit = require('axios-rate-limit')
 
 const PUBLIC_DOMAIN = process.env.PUBLIC_DOMAIN
 if (!PUBLIC_DOMAIN) {
@@ -11,6 +12,10 @@ const MESSAGES_CSV_URL = process.env.MESSAGES_CSV_URL
 if (!MESSAGES_CSV_URL) {
   throw new Error('MESSAGES_CSV_URL not provided')
 }
+
+const http = rateLimit(axios.create(), {
+  maxRequests: 2,
+})
 
 const imagesDir = 'data/messages'
 const regexpDriveId = /^.*\?id=([-_a-zA-Z0-9]*)$/
@@ -26,7 +31,7 @@ const getImage = async (id: string) => {
     return null
   }
   const driveUrl = `https://drive.google.com/uc?id=${id}&export=download`
-  const res = await axios.get(driveUrl, { responseType: 'arraybuffer' })
+  const res = await http.get(driveUrl, { responseType: 'arraybuffer' })
   await fsPromise.writeFile(`${imagesDir}/${id}`, res.data)
   return `https://${PUBLIC_DOMAIN}/messages/${id}`
 }
@@ -34,7 +39,7 @@ const getImage = async (id: string) => {
 const main = async () => {
   await fsPromise.mkdir(imagesDir, { recursive: true })
 
-  const res = await axios.get(MESSAGES_CSV_URL)
+  const res = await http.get(MESSAGES_CSV_URL)
   const data = csv.parse(res.data) as string[][]
   const messages = await Promise.all(
     data.map(async (d, i) => {
