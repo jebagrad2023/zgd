@@ -9,6 +9,9 @@ on:
 permissions:
   contents: write
 
+environments:
+  AWS_REGION: ap-northeast-1
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -41,3 +44,13 @@ jobs:
           git add .
           git commit -m "Deploy ${GITHUB_SHA}" --allow-empty
           git push origin data
+
+      - name: Configure AWS credentials
+        if: github.event_name != 'pull_request'
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_ASSUME_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Upload
+        if: github.event_name != 'pull_request'
+        run: s3 sync --size-only data/messages s3://jebagrad2023web/messages
