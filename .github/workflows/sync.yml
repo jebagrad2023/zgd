@@ -34,6 +34,7 @@ jobs:
       - name: Fetch messages
         env:
           MESSAGES_CSV_URL: ${{ secrets.MESSAGES_CSV_URL }}
+          PUBLIC_DOMAIN: ${{ secrets.PUBLIC_DOMAIN }}
         run: yarn messages
 
       - name: Deploy
