@@ -62,9 +62,9 @@ jobs:
         if: github.event_name != 'pull_request'
         run: |
           rm -rf gh-pages/.git
-          s3 sync --size-only gh-pages/ s3://jebagrad2023web/
+          aws s3 sync --size-only gh-pages/ s3://jebagrad2023web/
       - name: Upload
         if: github.event_name == 'pull_request'
         run: |
           rm -rf gh-pages/.git
-          s3 sync --size-only --dryrun gh-pages/ s3://jebagrad2023web/
+          aws s3 sync --size-only --dryrun gh-pages/ s3://jebagrad2023web/
