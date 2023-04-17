@@ -49,8 +49,17 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: ${{ secrets.AWS_ASSUME_ROLE_ARN }}
+          role-to-assume: ${{ secrets.AWS_ASSUME_ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Configure AWS credentials
+        if: github.event_name == 'pull_request'
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_ASSUME_ROLE_RO }}
           aws-region: ${{ env.AWS_REGION }}
       - name: Upload
         if: github.event_name != 'pull_request'
         run: s3 sync --size-only data/messages/ s3://jebagrad2023web/messages/
+      - name: Upload
+        if: github.event_name == 'pull_request'
+        run: s3 sync --size-only --dryrun data/messages/ s3://jebagrad2023web/messages/
