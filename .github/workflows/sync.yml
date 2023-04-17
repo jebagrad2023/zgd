@@ -53,4 +53,4 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
       - name: Upload
         if: github.event_name != 'pull_request'
-        run: s3 sync --size-only data/messages s3://jebagrad2023web/messages
+        run: s3 sync --size-only data/messages/ s3://jebagrad2023web/messages/

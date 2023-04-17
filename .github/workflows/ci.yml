@@ -41,3 +41,15 @@ jobs:
           git add .
           git commit -m "Deploy ${GITHUB_SHA}" --allow-empty
           git push origin gh-pages
+
+      - name: Configure AWS credentials
+        if: github.event_name != 'pull_request'
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_ASSUME_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Upload
+        if: github.event_name != 'pull_request'
+        run: |
+          rm -rf gh-pages/.git
+          s3 sync --size-only gh-pages/ s3://jebagrad2023web/
