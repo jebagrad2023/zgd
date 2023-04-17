@@ -9,7 +9,7 @@ on:
 permissions:
   contents: write
 
-environments:
+env:
   AWS_REGION: ap-northeast-1
 
 jobs:
