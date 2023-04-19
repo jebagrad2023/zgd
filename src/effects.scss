@@ -22,3 +22,12 @@
     transform: translate(0, 0);
   }
 }
+
+@keyframes fadeinOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
