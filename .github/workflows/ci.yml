@@ -5,16 +5,17 @@ on:
       - main
   pull_request:
 
-permissions:
-  contents: write
-  id-token: write
-
 env:
   AWS_REGION: ap-northeast-1
 
 jobs:
   ci:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    outputs:
+      deployable: ${{ steps.deployable.outputs.deployable }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -39,8 +40,17 @@ jobs:
           cp -r public/* gh-pages/
           cp -r dist/* gh-pages/public/
 
+      - name: Check deployable
+        id: deployable
+        run: |
+          if [ "$(git ls-remote -q --head origin main | cut -f1)" = ${GITHUB_SHA} ]; then
+            echo 'deployable=true' | tee -a ${GITHUB_OUTPUT}
+          else
+            echo 'deployable=false' | tee -a ${GITHUB_OUTPUT}
+          fi
+
       - name: Deploy
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && steps.deployable.outputs.deployable
         run: |
           cd gh-pages
           git config user.name "Doramanjyu"
@@ -62,7 +72,7 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ASSUME_ROLE_RO }}
           aws-region: ${{ env.AWS_REGION }}
       - name: Upload
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && steps.deployable.outputs.deployable
         run: |
           rm -rf gh-pages/.git
           aws s3 sync --size-only gh-pages/ s3://jebagrad2023web/
@@ -71,3 +81,33 @@ jobs:
         run: |
           rm -rf gh-pages/.git
           aws s3 sync --size-only --dryrun gh-pages/ s3://jebagrad2023web/
+
+  notification:
+    needs: ci
+    permissions:
+      pull-requests: write
+    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get PR number
+        id: pr_number
+        uses: kamatama41/get-pr-number-action@v0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install gh-pr-comment
+        uses: at-wat/setup-gh-pr-comment@v0
+      - name: Notify skip
+        if: needs.ci.result == 'success' && needs.ci.outputs.deployable != true
+        run: gh-pr-comment -pr ${{ steps.pr_number.outputs.number }} ":next_track_button: Deploy skipped" ""
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Notify succeeded
+        if: needs.ci.result == 'success' && needs.ci.outputs.deployable
+        run: gh-pr-comment -pr ${{ steps.pr_number.outputs.number }} ":rocket: Deployed" ""
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Notify failed
+        if: needs.ci.result != 'success'
+        run: gh-pr-comment -pr ${{ steps.pr_number.outputs.number }} ":x: Deploy failed" ""
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
