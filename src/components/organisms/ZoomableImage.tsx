@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import { Backdrop } from '@zgd/components/atoms/Backdrop'
+
 type Props = {
   src: string
 }
@@ -10,9 +12,9 @@ export const ZoomableImage = ({ src }: Props): JSX.Element => {
   return (
     <div className="zoomableImage" onClick={toggleZoomed}>
       {zoomed && (
-        <div className="backdrop">
+        <Backdrop>
           <img src={src} />
-        </div>
+        </Backdrop>
       )}
       <img src={src} loading="lazy" />
     </div>
