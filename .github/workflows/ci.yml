@@ -98,16 +98,19 @@ jobs:
         uses: at-wat/setup-gh-pr-comment@v0
       - name: Notify skip
         if: needs.ci.result == 'success' && needs.ci.outputs.deployable != true
-        run: gh-pr-comment -pr ${{ steps.pr_number.outputs.number }} ":next_track_button: Deploy skipped" ""
+        run: |
+          gh-pr-comment -pr ${{ steps.pr_number.outputs.number }} ":next_track_button: Deploy skipped" ""
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Notify succeeded
         if: needs.ci.result == 'success' && needs.ci.outputs.deployable
-        run: gh-pr-comment -pr ${{ steps.pr_number.outputs.number }} ":rocket: Deployed" ""
+        run: |
+          gh-pr-comment -pr ${{ steps.pr_number.outputs.number }} ":rocket: Deployed" ""
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Notify failed
         if: needs.ci.result != 'success'
-        run: gh-pr-comment -pr ${{ steps.pr_number.outputs.number }} ":x: Deploy failed" ""
+        run: |
+          gh-pr-comment -pr ${{ steps.pr_number.outputs.number }} ":x: Deploy failed" ""
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
