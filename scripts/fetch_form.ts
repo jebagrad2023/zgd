@@ -27,7 +27,7 @@ type Message = {
 }
 
 const getImage = async (id: string) => {
-  if (id === '') {
+  if (!id) {
     return null
   }
   const driveUrl = `https://drive.google.com/uc?id=${id}&export=download`
