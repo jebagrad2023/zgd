@@ -16,16 +16,7 @@ h1,
 h2,
 h3 {
   margin: 0;
-  padding: 8px 0;
-  font-family: 'PixelMplus12 Bold';
-
-  animation-name: fadein;
-  animation-duration: 2s;
-}
-
-h1 {
-  color: #620;
-  text-align: center;
+  font-family: 'PixelMplus12 Regular';
 }
 
 html {
@@ -39,8 +30,10 @@ body {
   padding: 0;
   width: 100%;
   font-family: 'PixelMplus12 Regular';
-  background-image: url('@zgd/images/cornfield-bg.png');
-  background-size: auto 100vh;
+  background-image: url('@zgd/images/desktop_background.png');
+  background-size: auto 590px;
+  background-repeat: repeat-x;
+  background-color: #ac0;
   background-attachment: fixed;
 }
 
@@ -51,28 +44,59 @@ body {
 #root {
   padding: 8px 32px;
   width: 100%;
+  height: 100vh;
 }
 
 #container {
   margin: 0 auto;
   max-width: 1200px;
-}
+  height: 100%;
+  border-top: 2px solid #eee;
+  border-left: 2px solid #eee;
+  border-right: 2px solid #666;
+  border-bottom: 2px solid #666;
 
-#mainLogo {
-  width: 100%;
-  height: calc(min(100vw, 1200px) / 4);
-  background-image: url('@zgd/images/main-logo.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  animation-name: fadein;
+  animation-duration: 2s;
 }
 
 #main {
-  background-color: #fd0;
-  padding: 0 32px 64px 32px;
-  border-radius: 64px 64px 8px 64px;
-  animation-name: fadein;
-  animation-duration: 2s;
+  height: 100%;
+  overflow: hidden;
+  background-color: #eee;
+
+  border: 2px solid #ccc;
+}
+
+h1 {
+  color: #fff;
+  font-size: 16px;
+  background-image: url('@zgd/images/titlebar_background.png');
+  background-repeat: repeat-y;
+  background-color: #d00;
+  background-size: auto 32px;
+  padding: 2px 6px;
+  border-bottom: 2px solid #ccc;
+
+  span.upper {
+    font-size: 50%;
+    vertical-align: super;
+  }
+
+  span.beaMark {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-image: url('@zgd/images/bea_mark.png');
+    background-size: contain;
+    vertical-align: -8%;
+  }
+}
+
+#contents {
+  padding: 16px;
+  height: 100%;
+  overflow: scroll;
 }
 
 .messageBoard {
@@ -81,6 +105,7 @@ body {
   flex-wrap: wrap;
   align-content: stretch;
   gap: 8px;
+  padding-bottom: 16px;
 }
 
 .messageColumn {
@@ -98,7 +123,6 @@ body {
   width: 100%;
   padding: 16px;
   background-color: #ff0;
-  border-radius: 16px;
   text-align: justify;
   margin-bottom: 8px;
   font-size: 14px;
