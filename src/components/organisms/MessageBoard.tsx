@@ -18,10 +18,18 @@ type Props = {
   messages: MessageProps[]
 }
 
+const filterTooManyNewlines = new RegExp('\\n{2,}', 'g')
+const newlineSplitter = new RegExp('(\\n)')
+
 const Message = ({ name, text, image }: MessageProps): JSX.Element => (
   <div className="message">
     {!image ? null : <ZoomableImage src={image} />}
-    <div className="messageContents">{text}</div>
+    <div className="messageContents">
+      {text
+        .replace(filterTooManyNewlines, '\n\n')
+        .split(newlineSplitter)
+        .map((s) => (s === '\n' ? <br /> : s))}
+    </div>
     <div className="messageBy">{name}</div>
   </div>
 )
