@@ -28,7 +28,7 @@ const Message = ({ name, text, image }: MessageProps): JSX.Element => (
       {text
         .replace(filterTooManyNewlines, '\n\n')
         .split(newlineSplitter)
-        .map((s) => (s === '\n' ? <br /> : s))}
+        .map((s, i) => (s === '\n' ? <br key={`br${i}`} /> : s))}
     </div>
     <div className="messageBy">{name}</div>
   </div>
