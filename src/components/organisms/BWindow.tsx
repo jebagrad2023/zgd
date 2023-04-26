@@ -9,8 +9,8 @@ type Props = {
 }
 
 export const BWindow = ({ title, children, onClose }: Props): JSX.Element => (
-  <div id="container">
-    <div id="main">
+  <div id="windowOuter">
+    <div id="windowInner">
       <Header>
         {title}
         <div id="closeWindow" onClick={onClose} />

@@ -55,7 +55,10 @@ body {
   background-attachment: fixed;
 }
 
-#container {
+#windowOuter {
+  z-index: 10000;
+  position: relative;
+
   margin: 0 auto;
   max-width: 1200px;
   height: 100%;
@@ -68,7 +71,7 @@ body {
   animation-duration: 2s;
 }
 
-#main {
+#windowInner {
   height: 100%;
   overflow: hidden;
   background-color: #eee;
@@ -211,6 +214,7 @@ h1 {
 }
 
 .desktopItems {
+  z-index: 1000;
   position: absolute;
   top: 0;
   left: 0;
