@@ -69,7 +69,7 @@ body {
 
   animation-name: fadein;
   animation-duration: 1s;
-  animation-timing-function: steps(7);
+  animation-timing-function: steps(8);
 }
 
 #windowInner {
@@ -162,7 +162,7 @@ h1 {
   font-size: 14px;
 
   animation-name: fadeinDelayed;
-  animation-duration: 1.6s;
+  animation-duration: 1.4s;
   animation-timing-function: steps(6);
 
   img {
