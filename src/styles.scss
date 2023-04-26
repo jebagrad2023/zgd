@@ -29,12 +29,8 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+  height: 100vh;
   font-family: 'PixelMplus12 Regular';
-  background-image: url('@zgd/images/desktop_background.png');
-  background-size: auto 590px;
-  background-repeat: repeat-x;
-  background-color: #ac0;
-  background-attachment: fixed;
 }
 
 * {
@@ -42,12 +38,27 @@ body {
 }
 
 #root {
-  padding: 8px 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
-#container {
+#desktop {
+  position: relative;
+  margin: 0;
+  padding: 8px 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('@zgd/images/desktop_background.png');
+  background-size: auto 590px;
+  background-repeat: repeat-x;
+  background-color: #ac0;
+  background-attachment: fixed;
+}
+
+#windowOuter {
+  z-index: 10000;
+  position: relative;
+
   margin: 0 auto;
   max-width: 1200px;
   height: 100%;
@@ -57,10 +68,11 @@ body {
   border-bottom: 2px solid #666;
 
   animation-name: fadein;
-  animation-duration: 2s;
+  animation-duration: 1s;
+  animation-timing-function: steps(8);
 }
 
-#main {
+#windowInner {
   height: 100%;
   overflow: hidden;
   background-color: #eee;
@@ -69,6 +81,7 @@ body {
 }
 
 h1 {
+  position: relative;
   color: #fff;
   font-size: 16px;
   background-image: url('@zgd/images/titlebar_background.png');
@@ -93,6 +106,21 @@ h1 {
   }
 }
 
+#closeWindow {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  width: 18px;
+  height: 18px;
+
+  background-color: #000;
+  background-image: url('@zgd/images/minimize.png');
+  background-size: cover;
+
+  cursor: pointer;
+  text-align: center;
+}
+
 #contents {
   padding: 16px;
   height: 100%;
@@ -114,7 +142,7 @@ h1 {
 }
 
 @media (max-width: 1200px) {
-  #root {
+  #desktop {
     padding: 0;
   }
 }
@@ -134,7 +162,8 @@ h1 {
   font-size: 14px;
 
   animation-name: fadeinDelayed;
-  animation-duration: 2s;
+  animation-duration: 1.4s;
+  animation-timing-function: steps(6);
 
   img {
     width: 100%;
@@ -184,4 +213,38 @@ h1 {
 
   animation-name: fadeinOpacity;
   animation-duration: 0.3s;
+  animation-timing-function: steps(3);
+}
+
+.desktopItems {
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  padding: 8px;
+}
+
+.desktopItem {
+  padding: 8px;
+  width: 128px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+
+  .icon {
+    width: 64px;
+    height: 64px;
+    background-color: #0008;
+  }
+
+  .name {
+    background-color: #0008;
+    color: #fff;
+    max-width: 100%;
+    text-align: center;
+    padding: 2px 2px 4px 2px;
+  }
 }
