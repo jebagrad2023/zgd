@@ -6,6 +6,7 @@ import { BWindow } from '@zgd/components/organisms/BWindow'
 enum WindowContent {
   ContentNone,
   ContentMessages,
+  ContentDummy,
 }
 
 export const Desktop = (): JSX.Element => {
@@ -23,10 +24,22 @@ export const Desktop = (): JSX.Element => {
           <div className="icon" />
           <div className="name">Messages from Kernels</div>
         </div>
+        <div
+          className="desktopItem"
+          onClick={selectContent(WindowContent.ContentDummy)}
+        >
+          <div className="icon" />
+          <div className="name">Something</div>
+        </div>
       </div>
       {opened == WindowContent.ContentMessages && (
         <BWindow title="Messages from Kernels" onClose={closeWindow}>
           <MessageBoard />
+        </BWindow>
+      )}
+      {opened == WindowContent.ContentDummy && (
+        <BWindow title="Something" onClose={closeWindow}>
+          ...?
         </BWindow>
       )}
     </div>
