@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { MessageBoard } from '@zgd/components/organisms/MessageBoard'
 import { BWindow } from '@zgd/components/organisms/BWindow'
 
+import iconMessages from '@zgd/images/icon_messages.png'
+
 enum WindowContent {
   ContentNone,
   ContentMessages,
@@ -21,7 +23,7 @@ export const Desktop = (): JSX.Element => {
           className="desktopItem"
           onClick={selectContent(WindowContent.ContentMessages)}
         >
-          <div className="icon" />
+          <img src={iconMessages} className="icon" />
           <div className="name">Messages from Kernels</div>
         </div>
         <div
