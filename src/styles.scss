@@ -68,7 +68,8 @@ body {
   border-bottom: 2px solid #666;
 
   animation-name: fadein;
-  animation-duration: 2s;
+  animation-duration: 1s;
+  animation-timing-function: steps(7);
 }
 
 #windowInner {
@@ -161,7 +162,8 @@ h1 {
   font-size: 14px;
 
   animation-name: fadeinDelayed;
-  animation-duration: 2s;
+  animation-duration: 1.6s;
+  animation-timing-function: steps(6);
 
   img {
     width: 100%;
@@ -211,6 +213,7 @@ h1 {
 
   animation-name: fadeinOpacity;
   animation-duration: 0.3s;
+  animation-timing-function: steps(3);
 }
 
 .desktopItems {
