@@ -15,7 +15,7 @@ export const SplashScreen = ({ onDone }: Props): JSX.Element => {
   }, [])
 
   useEffect(() => {
-    if (progress === 15) {
+    if (progress === progressPattern.length + 4) {
       onDone()
     }
   }, [progress])
@@ -26,7 +26,10 @@ export const SplashScreen = ({ onDone }: Props): JSX.Element => {
       : progressPattern[progressPattern.length - 1]
 
   return (
-    <div id="splashScreen">
+    <div
+      id="splashScreen"
+      className={progress > progressPattern.length ? 'transitioning' : ''}
+    >
       <div id="beamsLogo">
         {Array.from(Array(bar).keys()).map((i) => (
           <div className="beamsProgress" key={i} />

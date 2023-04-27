@@ -258,10 +258,15 @@ div#splashScreen {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: #000;
+  background-color: #333966;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &.transitioning {
+    background-color: #6c6;
+    transition: background-color 1s steps(6);
+  }
 
   #beamsLogo {
     width: 600px;
