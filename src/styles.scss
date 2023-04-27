@@ -251,3 +251,32 @@ h1 {
     padding: 2px 2px 4px 2px;
   }
 }
+
+div#splashScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  #beamsLogo {
+    width: 600px;
+    height: 600px;
+    background-image: url('@zgd/images/beams.png');
+    background-size: cover;
+    padding: 480px 0 0 45px;
+
+    .beamsProgress {
+      width: 48px;
+      height: 48px;
+      background-image: url('@zgd/images/beams_progress.png');
+      background-size: cover;
+      float: left;
+      margin-right: 10px;
+    }
+  }
+}
