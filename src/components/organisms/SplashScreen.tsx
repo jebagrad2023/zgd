@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import beamsProgress from '@zgd/images/beams_progress.png'
+import beamsLogo from '@zgd/images/beams.png'
 
 type Props = {
   onDone: () => void
@@ -12,8 +13,17 @@ export const SplashScreen = ({ onDone }: Props): JSX.Element => {
   const [progress, setProgress] = useState(1)
 
   useEffect(() => {
-    const timer = setInterval(() => setProgress((p) => p + 1), 150)
-    return () => clearInterval(timer)
+    const img = new Image()
+    let timer: ReturnType<typeof setInterval>
+    img.onload = () => {
+      timer = setInterval(() => setProgress((p) => p + 1), 150)
+    }
+    img.src = beamsLogo
+    return () => {
+      if (timer) {
+        clearInterval(timer)
+      }
+    }
   }, [])
 
   useEffect(() => {
