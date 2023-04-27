@@ -269,19 +269,26 @@ div#splashScreen {
   }
 
   #beamsLogo {
+    position: relative;
     width: 600px;
-    height: 600px;
+    max-width: 80%;
+    aspect-ratio: 1 / 1;
     background-image: url('@zgd/images/beams.png');
-    background-size: cover;
-    padding: 480px 0 0 45px;
+    background-size: contain;
+    background-repeat: no-repeat;
 
-    .beamsProgress {
-      width: 48px;
-      height: 48px;
-      background-image: url('@zgd/images/beams_progress.png');
-      background-size: cover;
+    #beamsProgressArea {
+      position: absolute;
+      top: 80%;
+      left: 7.5%;
+      right: 0;
+      bottom: 0;
+    }
+
+    img.beamsProgress {
+      width: 8.8%;
       float: left;
-      margin-right: 10px;
+      margin-right: 1.6%;
     }
   }
 }

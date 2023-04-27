@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import beamsProgress from '@zgd/images/beams_progress.png'
+
 type Props = {
   onDone: () => void
 }
@@ -31,9 +33,11 @@ export const SplashScreen = ({ onDone }: Props): JSX.Element => {
       className={progress > progressPattern.length ? 'transitioning' : ''}
     >
       <div id="beamsLogo">
-        {Array.from(Array(bar).keys()).map((i) => (
-          <div className="beamsProgress" key={i} />
-        ))}
+        <div id="beamsProgressArea">
+          {Array.from(Array(bar).keys()).map((i) => (
+            <img src={beamsProgress} className="beamsProgress" key={i} />
+          ))}
+        </div>
       </div>
     </div>
   )
