@@ -41,6 +41,7 @@ export const SplashScreen = ({ onDone }: Props): JSX.Element => {
     <div
       id="splashScreen"
       className={progress > progressPattern.length ? 'transitioning' : ''}
+      onClick={onDone}
     >
       <div id="beamsLogo">
         <div id="beamsProgressArea">
