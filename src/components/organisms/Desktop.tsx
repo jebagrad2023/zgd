@@ -2,19 +2,27 @@ import React, { useState } from 'react'
 
 import { MessageBoard } from '@zgd/components/organisms/MessageBoard'
 import { BWindow } from '@zgd/components/organisms/BWindow'
+import { SplashScreen } from '@zgd/components/organisms/SplashScreen'
 
 import iconMessages from '@zgd/images/icon_messages.png'
 
 enum WindowContent {
+  ContentSplashScreen,
   ContentNone,
   ContentMessages,
   ContentDummy,
 }
 
 export const Desktop = (): JSX.Element => {
-  const [opened, setOpened] = useState(WindowContent.ContentMessages)
+  const [opened, setOpened] = useState(WindowContent.ContentSplashScreen)
   const closeWindow = () => setOpened(WindowContent.ContentNone)
   const selectContent = (c: WindowContent) => () => setOpened(c)
+
+  if (opened === WindowContent.ContentSplashScreen) {
+    return (
+      <SplashScreen onDone={selectContent(WindowContent.ContentMessages)} />
+    )
+  }
 
   return (
     <div id="desktop">
