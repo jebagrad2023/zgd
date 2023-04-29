@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { MessageBoard } from '@zgd/components/organisms/MessageBoard'
 import { BWindow } from '@zgd/components/organisms/BWindow'
 import { SplashScreen } from '@zgd/components/organisms/SplashScreen'
+import { BEAChatBot } from '@zgd/components/organisms/BEAChatBot'
 
 import iconMessages from '@zgd/images/icon_messages.png'
 
@@ -52,6 +53,7 @@ export const Desktop = (): JSX.Element => {
           ...?
         </BWindow>
       )}
+      <BEAChatBot />
     </div>
   )
 }
