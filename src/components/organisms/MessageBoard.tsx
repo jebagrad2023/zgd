@@ -61,11 +61,14 @@ export const MessageBoard = (): JSX.Element => {
         messages.slice(i * messagesPerColumn, (i + 1) * messagesPerColumn),
       )
   return (
-    <div className="messageBoard">
-      {!error ? null : `error: ${error.toString()}`}
-      {!messages
-        ? null
-        : columns.map((c, i) => <MessageColumn messages={c} key={i} />)}
-    </div>
+    <>
+      <div className="messageBoard">
+        {!error ? null : `error: ${error.toString()}`}
+        {!messages
+          ? null
+          : columns.map((c, i) => <MessageColumn messages={c} key={i} />)}
+      </div>
+      <div className="messageBoardFooter">Terima kasih!</div>
+    </>
   )
 }
