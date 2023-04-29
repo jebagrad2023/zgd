@@ -12,6 +12,12 @@
     format('woff2');
 }
 
+@font-face {
+  font-family: PixelMplus10 Regular;
+  src: url('https://cdn.leafscape.be/PixelMplus/PixelMplus10-Regular_web.woff2')
+    format('woff2');
+}
+
 h1,
 h2,
 h3 {
@@ -289,6 +295,114 @@ div#splashScreen {
       width: 8.8%;
       float: left;
       margin-right: 1.6%;
+    }
+  }
+}
+
+div#beaChatBot {
+  z-index: 20000;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 168px;
+  height: 132px;
+  background-image: url('@zgd/images/bea_chatbot.png');
+  background-size: contain;
+
+  animation-name: fromRightDelayed;
+  animation-duration: 2s;
+  animation-timing-function: steps(12);
+
+  #beaChatBotOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: contain;
+
+    &[data-eye='open'] {
+      background-image: url('@zgd/images/bea_chatbot_eye_open.png');
+    }
+    &[data-eye='close'] {
+      background-image: url('@zgd/images/bea_chatbot_eye_close.png');
+    }
+    &[data-mouth='v'] {
+      background-image: url('@zgd/images/bea_chatbot_mouth_v.png');
+    }
+  }
+}
+
+div#chatBox {
+  z-index: 21000;
+  position: absolute;
+  right: 20px;
+  bottom: 160px;
+  width: 192px;
+  height: auto;
+  padding: 8px;
+  background-color: #eee;
+  border: 2px solid #626262;
+
+  color: #626262;
+  font-family: 'PixelMplus10 Regular';
+  font-size: 15px;
+
+  animation-name: fromRightDelayed;
+  animation-duration: 2s;
+  animation-timing-function: steps(12);
+
+  div#yourText {
+    color: #aaa;
+    margin-bottom: 4px;
+  }
+
+  div#beaText {
+    margin-bottom: 4px;
+  }
+
+  div#bubbleTail {
+    position: absolute;
+    bottom: -8px;
+    right: 48px;
+    width: 16px;
+    height: 8px;
+    background-image: url('@zgd/images/bea_chatbot_bubble_tail.png');
+    background-size: contain;
+  }
+
+  input {
+    border: 2px solid #ccc;
+    width: 100%;
+    font-size: 15px;
+    font-family: 'PixelMplus10 Regular';
+    padding: 2px;
+    ime-mode: inactive;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  div#beaChatBot {
+    right: 10px;
+    bottom: 10px;
+    width: 112px;
+    height: 88px;
+  }
+  div#chatBox {
+    bottom: 104px;
+    right: 10px;
+    width: 128px;
+    font-size: 12px;
+
+    div#beaText {
+      margin-bottom: 3px;
+    }
+    input {
+      font-size: 12px;
     }
   }
 }
