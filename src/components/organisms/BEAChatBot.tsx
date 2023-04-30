@@ -1,12 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
 
-const beaEyePattern = [
-  ...Array(80).fill('open'),
-  'none',
-  ...Array(2).fill('close'),
-  'none',
-]
-
 type ChatData = {
   match: RegExp
   output: string[]
@@ -30,8 +23,6 @@ const initialBEAText = 'May BEA help u?'
 
 export const BEAChatBot = (): JSX.Element => {
   const [beaState, setBeaState] = useState('normal')
-  const [eye, setEye] = useState('open')
-  const [mouth] = useState('v')
   const [yourText, setYourText] = useState('')
   const [beaText, setBeaText] = useState('...')
   const [inputDisabled, setInputDisabled] = useState(false)
@@ -65,15 +56,7 @@ export const BEAChatBot = (): JSX.Element => {
     [setBeaText, setInputDisabled],
   )
 
-  useEffect(() => {
-    let cnt = 0
-    const timer = setInterval(() => {
-      cnt++
-      setEye(beaEyePattern[cnt % beaEyePattern.length])
-    }, 100)
-    answer(initialBEAText, 2500)
-    return () => clearInterval(timer)
-  }, [answer])
+  useEffect(() => answer(initialBEAText, 2500), [answer])
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -133,7 +116,7 @@ export const BEAChatBot = (): JSX.Element => {
       case 'sleep':
         return 'zzz'
       default:
-        return eye
+        return 'default'
     }
   })()
   const currentMouth = (() => {
@@ -141,7 +124,7 @@ export const BEAChatBot = (): JSX.Element => {
       case 'sleep':
         return 'zzz'
       default:
-        return mouth
+        return 'default'
     }
   })()
 
