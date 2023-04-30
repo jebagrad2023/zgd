@@ -17,12 +17,18 @@ const chatDatabase: ChatData[] = [
   { match: /h[ae][lm]?lo/i, output: ['Hemlo'] },
 ]
 
+const cmdRegexp = {
+  sleep: /sle(ep|b)/i,
+  awake: /aw[ea]ke?/i,
+}
+
 const randInt = (v: number) => Math.floor(Math.random() * v)
 
 const beaTextTimeout = 10000
 const initialBEAText = 'May BEA help u?'
 
 export const BEAChatBot = (): JSX.Element => {
+  const [beaState, setBeaState] = useState('normal')
   const [eye, setEye] = useState('open')
   const [mouth] = useState('v')
   const [yourText, setYourText] = useState('')
@@ -82,8 +88,25 @@ export const BEAChatBot = (): JSX.Element => {
   const onKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       const el = e.target as HTMLInputElement
-      setYourText(`"${el.value}"`)
       setInputDisabled(true)
+
+      if (el.value.match(cmdRegexp.awake)) {
+        setYourText('')
+        setBeaTextStamp(null)
+        answer(initialBEAText, 1000)
+        setBeaState('normal')
+        el.value = ''
+        return
+      }
+      if (beaState === 'sleep' || el.value.match(cmdRegexp.sleep)) {
+        setYourText('')
+        setBeaTextStamp(null)
+        answer('Zzz...', 1000, () => setBeaState('sleep'))
+        el.value = ''
+        return
+      }
+
+      setYourText(`"${el.value}"`)
 
       const pat = chatDatabase.find((d) => el.value.match(d.match))
       const text = pat
@@ -95,6 +118,23 @@ export const BEAChatBot = (): JSX.Element => {
       el.value = ''
     }
   }
+
+  const currentEye = (() => {
+    switch (beaState) {
+      case 'sleep':
+        return 'zzz'
+      default:
+        return eye
+    }
+  })()
+  const currentMouth = (() => {
+    switch (beaState) {
+      case 'sleep':
+        return 'zzz'
+      default:
+        return mouth
+    }
+  })()
 
   return (
     <>
@@ -111,8 +151,8 @@ export const BEAChatBot = (): JSX.Element => {
         <div id="bubbleTail" />
       </div>
       <div id="beaChatBot">
-        <div id="beaChatBotOverlay" data-eye={eye} />
-        <div id="beaChatBotOverlay" data-mouth={mouth} />
+        <div id="beaChatBotOverlay" data-eye={currentEye} />
+        <div id="beaChatBotOverlay" data-mouth={currentMouth} />
       </div>
     </>
   )
