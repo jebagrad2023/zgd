@@ -26,9 +26,35 @@ div#beaChatBot {
     &[data-eye='close'] {
       background-image: url('@zgd/images/bea_chatbot_eye_close.png');
     }
+    &[data-eye='zzz'] {
+      animation-name: beaChatbotEyeZzz;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+    }
     &[data-mouth='v'] {
       background-image: url('@zgd/images/bea_chatbot_mouth_v.png');
     }
+    &[data-mouth='zzz'] {
+      background-image: url('@zgd/images/bea_chatbot_mouth_zzz.png');
+    }
+  }
+}
+
+@keyframes beaChatbotEyeZzz {
+  0% {
+    background-image: url('@zgd/images/bea_chatbot_eye_zzz0.png');
+  }
+  25% {
+    background-image: url('@zgd/images/bea_chatbot_eye_zzz1.png');
+  }
+  50% {
+    background-image: url('@zgd/images/bea_chatbot_eye_zzz2.png');
+  }
+  75% {
+    background-image: url('@zgd/images/bea_chatbot_eye_zzz3.png');
+  }
+  100% {
+    background-image: url('@zgd/images/bea_chatbot_eye_zzz0.png');
   }
 }
 
