@@ -25,6 +25,7 @@ const cmdRegexp = {
 const randInt = (v: number) => Math.floor(Math.random() * v)
 
 const beaTextTimeout = 10000
+const autoSleepTimeout = 600000
 const initialBEAText = 'May BEA help u?'
 
 export const BEAChatBot = (): JSX.Element => {
@@ -35,6 +36,9 @@ export const BEAChatBot = (): JSX.Element => {
   const [beaText, setBeaText] = useState('...')
   const [inputDisabled, setInputDisabled] = useState(false)
   const [beaTextStamp, setBeaTextStamp] = useState<number>()
+  const [lastInputStamp, setLastInputStamp] = useState<number>(
+    new Date().getTime(),
+  )
 
   const answer = useCallback(
     (s: string, wait: number, onDone?: () => void) => {
@@ -73,22 +77,27 @@ export const BEAChatBot = (): JSX.Element => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      if (
-        beaTextStamp &&
-        beaTextStamp + beaTextTimeout < new Date().getTime()
-      ) {
+      const now = new Date().getTime()
+      if (beaTextStamp && beaTextStamp + beaTextTimeout < now) {
         setYourText('')
         setBeaTextStamp(null)
         answer(initialBEAText, 1000)
       }
+      if (beaState !== 'sleep' && lastInputStamp + autoSleepTimeout < now) {
+        setYourText('')
+        setBeaTextStamp(null)
+        answer('Zzz...', 1000, () => setBeaState('sleep'))
+      }
     }, 1000)
     return () => clearInterval(timer)
-  }, [answer, beaTextStamp])
+  }, [answer, beaTextStamp, autoSleepTimeout, beaState])
 
   const onKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       const el = e.target as HTMLInputElement
       setInputDisabled(true)
+
+      setLastInputStamp(new Date().getTime())
 
       if (el.value.match(cmdRegexp.awake)) {
         setYourText('')
