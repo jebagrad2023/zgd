@@ -1,4 +1,4 @@
-.messageBoard {
+#messageBoard {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -7,7 +7,7 @@
   padding-bottom: 16px;
 }
 
-.messageBoardFooter {
+#messageBoardFooter {
   width: 100%;
   font-size: 24px;
   text-align: center;
@@ -74,4 +74,3 @@
     }
   }
 }
-

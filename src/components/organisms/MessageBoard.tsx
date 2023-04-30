@@ -62,13 +62,13 @@ export const MessageBoard = (): JSX.Element => {
       )
   return (
     <>
-      <div className="messageBoard">
+      <div id="messageBoard">
         {!error ? null : `error: ${error.toString()}`}
         {!messages
           ? null
           : columns.map((c, i) => <MessageColumn messages={c} key={i} />)}
       </div>
-      <div className="messageBoardFooter">Terima kasih!</div>
+      <div id="messageBoardFooter">Terima kasih!</div>
     </>
   )
 }

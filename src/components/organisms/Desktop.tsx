@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import { MessageBoard } from '@zgd/components/organisms/MessageBoard'
+import { Downloads } from '@zgd/components/organisms/Downloads'
 import { BWindow } from '@zgd/components/organisms/BWindow'
 import { SplashScreen } from '@zgd/components/organisms/SplashScreen'
 import { BEAChatBot } from '@zgd/components/organisms/BEAChatBot'
@@ -12,6 +13,7 @@ enum WindowContent {
   ContentSplashScreen,
   ContentNone,
   ContentMessages,
+  ContentDownloads,
   ContentDummy,
 }
 
@@ -38,6 +40,13 @@ export const Desktop = (): JSX.Element => {
         </div>
         <div
           className="desktopItem"
+          onClick={selectContent(WindowContent.ContentDownloads)}
+        >
+          <div className="icon" />
+          <div className="name">Special Gifts</div>
+        </div>
+        <div
+          className="desktopItem"
           onClick={selectContent(WindowContent.ContentDummy)}
         >
           <div className="icon" />
@@ -50,6 +59,11 @@ export const Desktop = (): JSX.Element => {
       {opened == WindowContent.ContentMessages && (
         <BWindow title="Messages from Kernels" onClose={closeWindow}>
           <MessageBoard />
+        </BWindow>
+      )}
+      {opened == WindowContent.ContentDownloads && (
+        <BWindow title="Special Gifts" onClose={closeWindow}>
+          <Downloads />
         </BWindow>
       )}
       {opened == WindowContent.ContentDummy && (
