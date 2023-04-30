@@ -124,3 +124,31 @@ h1 {
     padding: 2px 2px 4px 2px;
   }
 }
+.desktopCounter {
+  position: absolute;
+  bottom: 0;
+  padding: 8px;
+  width: 128px;
+
+  #counter {
+    width: 100%;
+    text-align: center;
+    line-height: 1.4em;
+    background-color: #fffc;
+    padding: 2px;
+
+    font-family: 'PixelMplus10 Regular';
+    font-size: 10px;
+
+    #counterNum {
+      background-color: #001c58;
+      color: #0ff;
+      padding: 1px 2px;
+      margin: 0 2px;
+      border: 2px solid #0ff;
+
+      font-family: 'PixelMplus12 Regular';
+      font-size: 12px;
+    }
+  }
+}
