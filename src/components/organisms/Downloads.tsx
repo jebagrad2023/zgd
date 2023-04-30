@@ -25,6 +25,6 @@ export const Downloads = (): JSX.Element => (
         Dummy text
       </DownloadItem>
     </div>
-    <div id="downloadsFooter"/>
+    <div id="downloadsFooter" />
   </>
 )
