@@ -4,6 +4,7 @@ import { MessageBoard } from '@zgd/components/organisms/MessageBoard'
 import { BWindow } from '@zgd/components/organisms/BWindow'
 import { SplashScreen } from '@zgd/components/organisms/SplashScreen'
 import { BEAChatBot } from '@zgd/components/organisms/BEAChatBot'
+import { AccessCounter } from '@zgd/components/organisms/AccessCounter'
 
 import iconMessages from '@zgd/images/icon_messages.png'
 
@@ -42,6 +43,9 @@ export const Desktop = (): JSX.Element => {
           <div className="icon" />
           <div className="name">Something</div>
         </div>
+      </div>
+      <div className="desktopCounter">
+        <AccessCounter />
       </div>
       {opened == WindowContent.ContentMessages && (
         <BWindow title="Messages from Kernels" onClose={closeWindow}>
