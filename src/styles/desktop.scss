@@ -9,6 +9,7 @@
   background-repeat: repeat-x;
   background-color: #ac0;
   background-attachment: fixed;
+  overflow: hidden;
 }
 
 @media (max-width: 1200px) {
@@ -124,6 +125,7 @@ h1 {
     padding: 2px 2px 4px 2px;
   }
 }
+
 .desktopCounter {
   position: absolute;
   bottom: 0;
