@@ -1,0 +1,69 @@
+#downloads {
+  width: 100%;
+}
+
+.downloadItem {
+  width: 100%;
+  padding: 16px;
+  background-color: #ff0;
+  text-align: justify;
+  margin-bottom: 8px;
+  font-size: 14px;
+
+  animation-name: fadeinDelayed;
+  animation-duration: 1.4s;
+  animation-timing-function: steps(6);
+}
+
+.downloadItemTitle {
+  font-family: 'PixelMplus12 Bold';
+  font-size: 18px;
+  color: #c30;
+  border-bottom: 3px dashed #c30;
+  margin-bottom: 8px;
+}
+
+.downloadItemLink {
+  font-family: 'PixelMplus12 Bold';
+  font-size: 16px;
+  color: #c30;
+  text-align: center;
+
+  animation-name: linkBlink;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(4);
+
+  a:before {
+    content: '>> ';
+  }
+  a:after {
+    content: ' <<';
+  }
+}
+
+@keyframes linkBlink {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#downloadsFooter {
+  width: 100%;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
