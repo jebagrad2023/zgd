@@ -13,6 +13,26 @@
   animation-name: fadeinDelayed;
   animation-duration: 1.4s;
   animation-timing-function: steps(6);
+
+  img {
+    border-radius: 4px;
+  }
+  img.right {
+    float: right;
+    margin: 2px 0 2px 8px;
+  }
+  img.left {
+    float: left;
+    margin: 2px 8px 2px 0;
+  }
+
+  hr {
+    height: 2px;
+    background-color: #dd0;
+    border: none;
+    margin: 24px 0;
+    padding: 0;
+  }
 }
 
 .downloadItemTitle {
@@ -28,6 +48,8 @@
   font-size: 16px;
   color: #c30;
   text-align: center;
+  clear: both;
+  padding-top: 16px;
 
   animation-name: linkBlink;
   animation-duration: 3s;
