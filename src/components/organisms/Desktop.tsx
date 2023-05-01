@@ -8,6 +8,7 @@ import { BEAChatBot } from '@zgd/components/organisms/BEAChatBot'
 import { AccessCounter } from '@zgd/components/organisms/AccessCounter'
 
 import iconMessages from '@zgd/images/icon_messages.png'
+import iconGifts from '@zgd/images/icon_gifts.png'
 
 enum WindowContent {
   ContentSplashScreen,
@@ -42,7 +43,7 @@ export const Desktop = (): JSX.Element => {
           className="desktopItem"
           onClick={selectContent(WindowContent.ContentDownloads)}
         >
-          <div className="icon" />
+          <img src={iconGifts} className="icon" />
           <div className="name">Special Gifts</div>
         </div>
         <div
