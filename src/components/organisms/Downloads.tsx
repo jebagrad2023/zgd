@@ -1,5 +1,7 @@
 import React from 'react'
 
+import kernelRotate from '@zgd/images/gifts/3dp_kernel.gif'
+
 type ItemProps = {
   title: string
   path: string
@@ -19,10 +21,13 @@ const DownloadItem = ({ title, path, children }: ItemProps): JSX.Element => (
 export const Downloads = (): JSX.Element => (
   <>
     <div id="downloads">
-      <DownloadItem title="Item name" path="gifts/test.zip">
-        Description and images
-        <br />
-        Dummy text
+      <DownloadItem title="Item name" path="#">
+        <p>Description and images</p>
+        <p>Dummy text</p>
+      </DownloadItem>
+      <DownloadItem title="3D Printable Kernel" path="#">
+        <p>Description and images</p>
+        <img src={kernelRotate} className="left" />
       </DownloadItem>
     </div>
     <div id="downloadsFooter" />
