@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useState } from 'react'
 
 const get = <T>(key: string): T => JSON.parse(localStorage.getItem(key)) as T
 

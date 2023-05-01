@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { MessageBoard } from '@zgd/components/organisms/MessageBoard'
 import { Downloads } from '@zgd/components/organisms/Downloads'
@@ -19,8 +19,6 @@ enum WindowContent {
   ContentDownloads,
   ContentDummy,
 }
-
-const splashScreenRetain = 60000
 
 export const Desktop = (): JSX.Element => {
   const [opened, setOpened] = usePersistState(
