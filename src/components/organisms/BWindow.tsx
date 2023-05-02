@@ -13,7 +13,7 @@ export const BWindow = ({ title, children, onClose }: Props): JSX.Element => (
     <div id="windowInner">
       <Header>
         {title}
-        <div id="closeWindow" onClick={onClose} />
+        <div id="closeWindow" onClick={onClose} className="cursorPointer" />
       </Header>
       <div id="contents">{children}</div>
     </div>

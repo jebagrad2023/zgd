@@ -80,7 +80,6 @@ h1 {
   background-image: url('@zgd/images/minimize.png');
   background-size: cover;
 
-  cursor: pointer;
   text-align: center;
 }
 
@@ -106,7 +105,6 @@ h1 {
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  cursor: pointer;
 
   .icon {
     width: 64px;

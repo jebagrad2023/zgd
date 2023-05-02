@@ -22,7 +22,12 @@ export const ZoomableImage = ({
           <img src={src} />
         </Backdrop>
       )}
-      <img src={src} style={style} loading="lazy" className={className} />
+      <img
+        src={src}
+        style={style}
+        loading="lazy"
+        className={['cursorPointer', className].join(' ')}
+      />
     </div>
   )
 }
