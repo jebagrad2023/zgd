@@ -39,21 +39,21 @@ export const Desktop = (): JSX.Element => {
     <div id="desktop">
       <div className="desktopItems">
         <div
-          className="desktopItem"
+          className="desktopItem cursorPointer"
           onClick={selectContent(WindowContent.ContentMessages)}
         >
           <img src={iconMessages} className="icon" />
           <div className="name">Messages from Kernels</div>
         </div>
         <div
-          className="desktopItem"
+          className="desktopItem cursorPointer"
           onClick={selectContent(WindowContent.ContentDownloads)}
         >
           <img src={iconGifts} className="icon" />
           <div className="name">Special Gifts</div>
         </div>
         <div
-          className="desktopItem"
+          className="desktopItem cursorPointer"
           onClick={selectContent(WindowContent.ContentDummy)}
         >
           <div className="icon" />
