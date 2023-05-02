@@ -4,6 +4,7 @@ import { ZoomableImage } from '@zgd/components/organisms/ZoomableImage'
 
 import kernelRotate from '@zgd/images/gifts/3dp_kernel.gif'
 import kernelPrinting from '@zgd/images/gifts/3dp_kernel_printing.jpg'
+import papercraft from '@zgd/images/gifts/papercraft.jpg'
 
 type ItemProps = {
   title: string
@@ -32,9 +33,49 @@ const DownloadItem = ({
 export const Downloads = (): JSX.Element => (
   <>
     <div id="downloads">
-      <DownloadItem title="Item name" path="#">
-        <p>Description and images</p>
-        <p>Dummy text</p>
+      <DownloadItem
+        title="ZEA Cornelia Papercraft"
+        downloadName="To Be Added"
+        path="#"
+      >
+        <ZoomableImage
+          src={papercraft}
+          className="right"
+          style={{
+            width: '340px',
+            maxWidth: '40%',
+          }}
+        />
+        <p>Build your own ZEA Cornelia paper figure!</p>
+        <p>
+          We might never had chance to get actual official ZEA figure anymore,
+          but at least you can get something close to it! Inspired from ZEA
+          figure featured in certain NIJISORE episode, this papercraft was
+          originally made for ZEA's birthday present, now it is available as a
+          public download. Get yours now!
+        </p>
+        <hr />
+        <p>
+          This download package includes the PDO files of the papercraft
+          template that you can open with Pepakura app for assembly guide
+          reference, and the PDF files for easy printing. The default print size
+          is A4 paper, although you can resize the print to a larger paper if
+          you want to build the figure on bigger size. It is recommended to
+          print on thick paper (above 100gsm) for sturdy yet flexible build
+          material.
+        </p>
+        <p>
+          3D model by Pirangunter
+          <br />
+          Papercraft by Enlima29
+        </p>
+        <p>
+          This is a fan-created content published for free. Modification and
+          redistribution of the contents are allowed following ANYCOLOR's
+          Guidelines for Secondary Creation. All credits belong to the
+          respective creators.
+        </p>
+        <p>Originally posted on Twitter: TBA</p>
       </DownloadItem>
       <DownloadItem
         title="3D Printable Kernel"
