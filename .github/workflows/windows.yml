@@ -1,4 +1,4 @@
-name: ci
+name: windows
 on:
   push:
     branches:
@@ -9,7 +9,7 @@ env:
   AWS_REGION: ap-northeast-1
 
 jobs:
-  windows:
+  dev-server:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
