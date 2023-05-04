@@ -30,8 +30,8 @@ jobs:
         run: yarn
       - name: Dev server
         run: |
-          $job = Start-Job { yarn serve }
-          sleep 10
+          $job = Start-Job { yarn serve; echo "devServer exited" }
+          sleep 20
           $job.ChildJobs[0].Output
 
           curl --fail http://localhost:8080
