@@ -31,7 +31,7 @@ jobs:
       - name: Dev server
         run: |
           $job = Start-Job { yarn serve }
-          sleep 10
+          sleep 20
           $job.ChildJobs[0].Output
 
           curl --fail http://localhost:8080
