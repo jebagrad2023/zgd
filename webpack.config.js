@@ -4,6 +4,8 @@ const isProduction = process.env.NODE_ENV == 'production'
 const stylesHandler = 'style-loader'
 const pathPrefix = process.env.PATH_PREFIX || (isProduction ? '' : '/')
 
+const isWindows = process.platform === 'win32'
+
 module.exports = () => {
   const config = {
     entry: './src/index.tsx',
@@ -47,7 +49,7 @@ module.exports = () => {
     devtool: 'inline-source-map',
     devServer: {
       open: false,
-      host: '0.0.0.0',
+      host: isWindows ? '127.0.0.1' : '0.0.0.0',
       port: 8080,
     },
     watchOptions: {
