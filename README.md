@@ -16,3 +16,7 @@
 1. Execute `yarn serve`
 2. Open https://localhost:8080/
 3. Edited files will be automatically applied
+
+### Merge changes to the main branch
+
+GitHub flow: https://docs.github.com/en/get-started/quickstart/github-flow
