@@ -47,11 +47,11 @@ module.exports = () => {
     devtool: 'inline-source-map',
     devServer: {
       open: false,
-      host: '0.0.0.0',
+      host: 'local-ip',
       port: 8080,
     },
     watchOptions: {
-      ignored: [path.resolve(__dirname, '**/.*.swp')],
+      ignored: [path.resolve(__dirname, '**', '.*.swp')],
     },
   }
 
