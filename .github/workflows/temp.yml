@@ -22,5 +22,7 @@ jobs:
         run: yarn
       - name: Dev server
         run: |
-          Start-Job { sleep 10; taskkill /IM node.exe /F }
-          yarn serve
+          Start-Job yarn serve
+          sleep 10
+          curl --fail http://localhost:8080
+          taskkill /IM node.exe /F
