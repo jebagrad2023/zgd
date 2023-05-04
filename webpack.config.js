@@ -51,7 +51,7 @@ module.exports = () => {
       port: 8080,
     },
     watchOptions: {
-      ignored: [path.resolve(__dirname, '**/.*.swp')],
+      ignored: [path.resolve(__dirname, '**', '.*.swp')],
     },
   }
 
