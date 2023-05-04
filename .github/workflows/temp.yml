@@ -1,0 +1,25 @@
+name: ci
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  AWS_REGION: ap-northeast-1
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+          cache: yarn
+
+      - name: Install deps
+        run: yarn
+      - name: Dev server
+        run:
+          yarn serve
