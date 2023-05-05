@@ -1,8 +1,10 @@
 const path = require('path')
 
-const isProduction = process.env.NODE_ENV == 'production'
+const isProduction = process.env.NODE_ENV === 'production'
 const stylesHandler = 'style-loader'
 const pathPrefix = process.env.PATH_PREFIX || (isProduction ? '' : '/')
+
+const isWindows = process.platform === 'win32'
 
 module.exports = () => {
   const config = {
@@ -27,7 +29,7 @@ module.exports = () => {
           use: [stylesHandler, 'css-loader', 'sass-loader'],
         },
         {
-          test: /\.(png|jpg)$/i,
+          test: /\.(png|jpg|gif)$/i,
           type: 'asset/resource',
         },
       ],
@@ -51,7 +53,7 @@ module.exports = () => {
       port: 8080,
     },
     watchOptions: {
-      ignored: [path.resolve(__dirname, '**/.*.swp')],
+      ignored: isWindows ? [] : [path.resolve(__dirname, '**', '.*.swp')],
     },
   }
 

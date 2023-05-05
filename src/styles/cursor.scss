@@ -1,0 +1,11 @@
+body, .cursorDefault {
+  cursor: url(images/cursor/ZEA2nd_pointer.png), auto;
+}
+
+a, .cursorPointer {
+  cursor: url(images/cursor/ZEA2nd_link_click.png), pointer;
+}
+
+input[type='text'], .cursorText {
+  cursor: url(images/cursor/ZEA2nd_text.png), text;
+}

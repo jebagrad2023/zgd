@@ -1,0 +1,91 @@
+#downloads {
+  width: 100%;
+}
+
+.downloadItem {
+  width: 100%;
+  padding: 16px;
+  background-color: #ff0;
+  text-align: justify;
+  margin-bottom: 8px;
+  font-size: 14px;
+
+  animation-name: fadeinDelayed;
+  animation-duration: 1.4s;
+  animation-timing-function: steps(6);
+
+  img {
+    border-radius: 4px;
+  }
+  img.right {
+    float: right;
+    margin: 2px 0 2px 8px;
+  }
+  img.left {
+    float: left;
+    margin: 2px 8px 2px 0;
+  }
+
+  hr {
+    height: 2px;
+    background-color: #dd0;
+    border: none;
+    margin: 24px 0;
+    padding: 0;
+  }
+}
+
+.downloadItemTitle {
+  font-family: 'PixelMplus12 Bold';
+  font-size: 18px;
+  color: #c30;
+  border-bottom: 3px dashed #c30;
+  margin-bottom: 8px;
+}
+
+.downloadItemLink {
+  font-family: 'PixelMplus12 Bold';
+  font-size: 16px;
+  color: #c30;
+  text-align: center;
+  clear: both;
+  padding-top: 16px;
+
+  animation-name: linkBlink;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(4);
+
+  a:before {
+    content: '>> ';
+  }
+  a:after {
+    content: ' <<';
+  }
+}
+
+@keyframes linkBlink {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#downloadsFooter {
+  width: 100%;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
