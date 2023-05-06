@@ -8,6 +8,24 @@ type ChatData = {
 const chatDatabase: ChatData[] = [
   { match: /apa\s*kabar/i, output: ['B aja'] },
   { match: /h[ae][lm]?lo/i, output: ['Hemlo'] },
+  {
+    match: /[zj]eb?a.*wang[iy]?/i,
+    output: ['gws', 'In fact... *redacted*', '...'],
+  },
+  {
+    match: /[zj]eb?a/i,
+    output: [
+      'Here lies ZEA Cornelia',
+      'She was the amazingly sweet and talented automaton',
+      '4ever in our heart',
+    ],
+  },
+  { match: /bea/i, output: ['Heh', 'Here BEA am'] },
+  { match: /what'?s?\s*pop+ing?/i, output: ["What's poppin!"] },
+  {
+    match: /wang[iy]?/i,
+    output: ['Wangy wangy', 'Hu ha hu ha', 'くんかくんか'],
+  },
 ]
 
 const cmdRegexp = {
