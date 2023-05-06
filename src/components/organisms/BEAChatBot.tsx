@@ -9,6 +9,10 @@ const chatDatabase: ChatData[] = [
   { match: /apa\s*kabar/i, output: ['B aja'] },
   { match: /h[ae][lm]?lo/i, output: ['Hemlo'] },
   {
+    match: /[zj]eb?a.*wang[iy]?/i,
+    output: ['gws', 'Betul'],
+  },
+  {
     match: /[zj]eb?a/i,
     output: [
       'Here lies ZEA Cornelia',
@@ -18,6 +22,10 @@ const chatDatabase: ChatData[] = [
   },
   { match: /bea/i, output: ['Heh', 'Here BEA am'] },
   { match: /what'?s?\s*pop+ing?/i, output: ["What's poppin!"] },
+  {
+    match: /wang[iy]?/i,
+    output: ['Wangy wangy', 'Hu ha hu ha', 'くんかくんか'],
+  },
 ]
 
 const cmdRegexp = {
