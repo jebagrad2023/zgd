@@ -10,7 +10,7 @@ const chatDatabase: ChatData[] = [
   { match: /h[ae][lm]?lo/i, output: ['Hemlo'] },
   {
     match: /[zj]eb?a.*wang[iy]?/i,
-    output: ['gws', 'Betul'],
+    output: ['gws', 'In fact... *redacted*', '...'],
   },
   {
     match: /[zj]eb?a/i,
