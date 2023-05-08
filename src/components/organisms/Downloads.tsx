@@ -35,8 +35,8 @@ export const Downloads = (): JSX.Element => (
     <div id="downloads">
       <DownloadItem
         title="ZEA Cornelia Papercraft"
-        downloadName="To Be Added"
-        path="#"
+        downloadName="2434IDZEA-papercraft.zip"
+        path="files/2434IDZEA-papercraft.zip"
       >
         <ZoomableImage
           src={papercraft}
@@ -75,12 +75,21 @@ export const Downloads = (): JSX.Element => (
           Guidelines for Secondary Creation. All credits belong to the
           respective creators.
         </p>
-        <p>Originally posted on Twitter: TBA</p>
+        <p>
+          Originally posted on Twitter:{' '}
+          <a
+            href="https://twitter.com/n5p29/status/1655573238448115712"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://twitter.com/n5p29/status/1655573238448115712
+          </a>
+        </p>
       </DownloadItem>
       <DownloadItem
         title="3D Printable Kernel"
         downloadName="Download kernel-3d.20220221.stl"
-        path="https://doramanjyu.com/download/kernel-3d.20220221.stl"
+        path="files/kernel-3d.20220221.stl"
       >
         <ZoomableImage
           src={kernelPrinting}
@@ -115,13 +124,13 @@ export const Downloads = (): JSX.Element => (
           Creation when redistribute.)
         </p>
         <p>
-          Originally posted on{' '}
+          Originally posted on twitter:{' '}
           <a
             href="https://twitter.com/doramanjyu/status/1495777883792580614"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Twitter
+            https://twitter.com/doramanjyu/status/1495777883792580614
           </a>
           .
         </p>
