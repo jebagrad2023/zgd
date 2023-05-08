@@ -124,7 +124,7 @@ export const Downloads = (): JSX.Element => (
           Creation when redistribute.)
         </p>
         <p>
-          Originally posted on twitter:{' '}
+          Originally posted on Twitter:{' '}
           <a
             href="https://twitter.com/doramanjyu/status/1495777883792580614"
             target="_blank"
