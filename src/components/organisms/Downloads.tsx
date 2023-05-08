@@ -132,7 +132,6 @@ export const Downloads = (): JSX.Element => (
           >
             https://twitter.com/doramanjyu/status/1495777883792580614
           </a>
-          .
         </p>
       </DownloadItem>
     </div>
