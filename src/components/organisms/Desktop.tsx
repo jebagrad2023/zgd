@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { MessageBoard } from '@zgd/components/organisms/MessageBoard'
+import { Calendar } from '@zgd/components/organisms/Calendar'
 import { Downloads } from '@zgd/components/organisms/Downloads'
 import { BWindow } from '@zgd/components/organisms/BWindow'
 import { SplashScreen } from '@zgd/components/organisms/SplashScreen'
@@ -11,12 +12,14 @@ import { usePersistState } from '@zgd/hooks/usePersistState'
 
 import iconMessages from '@zgd/images/icon_messages.png'
 import iconGifts from '@zgd/images/icon_gifts.png'
+import iconCalendar from '@zgd/images/icon_calendar.png'
 
 enum WindowContent {
   ContentSplashScreen,
   ContentNone,
   ContentMessages,
   ContentDownloads,
+  ContentCalendar,
   ContentDummy,
 }
 
@@ -54,6 +57,13 @@ export const Desktop = (): JSX.Element => {
         </div>
         <div
           className="desktopItem cursorPointer"
+          onClick={selectContent(WindowContent.ContentCalendar)}
+        >
+          <img src={iconCalendar} className="icon" />
+          <div className="name">Calendar</div>
+        </div>
+        <div
+          className="desktopItem cursorPointer"
           onClick={selectContent(WindowContent.ContentDummy)}
         >
           <div className="icon" />
@@ -71,6 +81,11 @@ export const Desktop = (): JSX.Element => {
       {opened == WindowContent.ContentDownloads && (
         <BWindow title="Special Gifts" onClose={closeWindow}>
           <Downloads />
+        </BWindow>
+      )}
+      {opened == WindowContent.ContentCalendar && (
+        <BWindow title="Calendar" onClose={closeWindow}>
+          <Calendar />
         </BWindow>
       )}
       {opened == WindowContent.ContentDummy && (

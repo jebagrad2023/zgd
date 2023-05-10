@@ -1,0 +1,119 @@
+#calendarTop {
+  width: 100%;
+  text-align: center;
+  font-family: 'PixelMplus12 Bold';
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+#calendarWhatsToday {
+  width: max-content;
+  max-width: 100%;
+  font-size: 18px;
+  margin: 24px auto;
+  padding: 8px;
+  text-align: center;
+  border: 4px solid #666;
+  border-radius: 4px;
+  background-color: #fff;
+
+  p {
+    margin: 8px 0;
+  }
+
+  iframe {
+    width: 560px;
+    height: auto;
+    max-width: 90%;
+    aspect-ratio: 560 / 315;
+    display: block;
+    margin: 8px auto 4px auto;
+    border-radius: 2px;
+  }
+}
+
+#calendarOuter {
+  display: grid;
+  width: 100%;
+  gap: 4px;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+#calendarOverlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.calendarDay {
+  font-size: 16px;
+  background-color: #ddd;
+  padding: 8px;
+  text-align: center;
+  height: 5em;
+  border: 4px solid #333;
+  border-radius: 4px;
+
+  &.notThisMonth {
+    visibility: hidden;
+  }
+
+  &.today {
+    background-color: #ff9;
+
+    animation-name: todayIsZeaBirthday;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+
+  &:hover {
+    border-width: 6px;
+  }
+}
+
+@keyframes todayIsZeaBirthday {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    border-color: #f90;
+  }
+  25% {
+    transform: rotate(6deg);
+    border-color: #f00;
+  }
+  50% {
+    transform: rotate(0deg);
+    border-color: #9f0;
+  }
+  75% {
+    transform: rotate(-6deg);
+    border-color: #0f0;
+  }
+}
+
+.dayOfWeek0 {
+  background-color: #f99;
+  color: #600;
+}
+
+.dayOfWeek6 {
+  background-color: #99f;
+  color: #006;
+}
+
+.calendarDayDescription {
+  font-family: 'PixelMplus12 Bold';
+  color: #f00;
+  padding: 8px 0;
+}
+
+#calendarFooter {
+  width: 100%;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
