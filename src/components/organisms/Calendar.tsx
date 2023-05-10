@@ -1,5 +1,6 @@
 import React from 'react'
 
+import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
 
 const days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -16,6 +17,8 @@ const drawDiamond = (ctx: CanvasRenderingContext2D) => {
 }
 
 export const Calendar = (): JSX.Element => {
+  const { width, height } = useWindowSize()
+
   const now = new Date()
   const year = now.getFullYear()
   const month = now.getMonth() + 1
@@ -50,7 +53,12 @@ export const Calendar = (): JSX.Element => {
   return (
     <>
       <div id="calendarOverlay">
-        <Confetti colors={['#fbec5d', '#f90']} drawShape={drawDiamond} />
+        <Confetti
+          colors={['#fbec5d', '#f90']}
+          drawShape={drawDiamond}
+          width={width}
+          height={height}
+        />
       </div>
       <div id="calendarTop">TODAY IS AUGUST 29 ({year})</div>
       <div id="calendarWhatsToday">
