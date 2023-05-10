@@ -26,6 +26,9 @@ const chatDatabase: ChatData[] = [
     match: /wang[iy]?/i,
     output: ['Wangy wangy', 'Hu ha hu ha', 'くんかくんか'],
   },
+  { match: /^boo!?$/i, output: ['Ba!'] },
+  { match: /^kok$/i, output: ['Dong'] },
+  { match: /^dong/i, output: ['Kok'] },
 ]
 
 const cmdRegexp = {
