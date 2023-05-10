@@ -1,6 +1,19 @@
 import React from 'react'
 
+import Confetti from 'react-confetti'
+
 const days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+const drawDiamond = (ctx: CanvasRenderingContext2D) => {
+  ctx.beginPath()
+  ctx.lineTo(0, 0)
+  ctx.lineTo(8, 12)
+  ctx.lineTo(0, 24)
+  ctx.lineTo(-8, 12)
+  ctx.lineTo(0, 0)
+  ctx.fill()
+  ctx.closePath()
+}
 
 export const Calendar = (): JSX.Element => {
   const now = new Date()
@@ -36,6 +49,9 @@ export const Calendar = (): JSX.Element => {
 
   return (
     <>
+      <div id="calendarOverlay">
+        <Confetti colors={['#fbec5d', '#f90']} drawShape={drawDiamond} />
+      </div>
       <div id="calendarTop">TODAY IS AUGUST 29 ({year})</div>
       <div id="calendarWhatsToday">
         <p>

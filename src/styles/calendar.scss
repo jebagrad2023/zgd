@@ -8,6 +8,7 @@
 
 #calendarWhatsToday {
   width: max-content;
+  max-width: 100%;
   font-size: 18px;
   margin: 24px auto;
   padding: 8px;
@@ -36,6 +37,15 @@
   width: 100%;
   gap: 4px;
   grid-template-columns: repeat(7, 1fr);
+}
+
+#calendarOverlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
 }
 
 .calendarDay {
