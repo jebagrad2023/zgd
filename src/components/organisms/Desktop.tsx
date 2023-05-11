@@ -3,7 +3,6 @@ import React from 'react'
 import { MessageBoard } from '@zgd/components/organisms/MessageBoard'
 import { Calendar } from '@zgd/components/organisms/Calendar'
 import { Downloads } from '@zgd/components/organisms/Downloads'
-import { Grave } from '@zgd/components/organisms/Grave'
 import { Collage } from '@zgd/components/organisms/Collage'
 import { BWindow } from '@zgd/components/organisms/BWindow'
 import { SplashScreen } from '@zgd/components/organisms/SplashScreen'
@@ -23,7 +22,7 @@ enum WindowContent {
   ContentDownloads,
   ContentCalendar,
   ContentDummy,
-  ContentCollage
+  ContentCollage,
 }
 
 export const Desktop = (): JSX.Element => {
