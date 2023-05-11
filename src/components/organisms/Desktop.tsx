@@ -4,6 +4,7 @@ import { MessageBoard } from '@zgd/components/organisms/MessageBoard'
 import { Calendar } from '@zgd/components/organisms/Calendar'
 import { Downloads } from '@zgd/components/organisms/Downloads'
 import { Collage } from '@zgd/components/organisms/Collage'
+import { Grave } from '@zgd/components/organisms/Grave'
 import { BWindow } from '@zgd/components/organisms/BWindow'
 import { SplashScreen } from '@zgd/components/organisms/SplashScreen'
 import { BEAChatBot } from '@zgd/components/organisms/BEAChatBot'
@@ -15,6 +16,7 @@ import iconMessages from '@zgd/images/icon_messages.png'
 import iconGifts from '@zgd/images/icon_gifts.png'
 import iconCalendar from '@zgd/images/icon_calendar.png'
 import iconCollage from '@zgd/images/icon_zeazone.gif'
+import iconGrave from '@zgd/images/icon_coffin.png'
 
 enum WindowContent {
   ContentSplashScreen,
@@ -24,6 +26,7 @@ enum WindowContent {
   ContentCalendar,
   ContentDummy,
   ContentCollage,
+  ContentGrave,
 }
 
 export const Desktop = (): JSX.Element => {
@@ -67,10 +70,10 @@ export const Desktop = (): JSX.Element => {
         </div>
         <div
           className="desktopItem cursorPointer"
-          onClick={selectContent(WindowContent.ContentDummy)}
+          onClick={selectContent(WindowContent.ContentGrave)}
         >
-          <div className="icon" />
-          <div className="name">Something</div>
+          <img src={iconGrave} className="icon" />
+          <div className="name">Memorial</div>
         </div>
         <div
           className="desktopItem cursorPointer"
@@ -78,6 +81,13 @@ export const Desktop = (): JSX.Element => {
         >
           <img src={iconCollage} className="icon" />
           <div className="name">THE ZEA ZONE</div>
+        </div>
+        <div
+          className="desktopItem cursorPointer"
+          onClick={selectContent(WindowContent.ContentDummy)}
+        >
+          <div className="icon" />
+          <div className="name">Something</div>
         </div>
       </div>
       <div className="desktopCounter">
@@ -98,14 +108,19 @@ export const Desktop = (): JSX.Element => {
           <Calendar />
         </BWindow>
       )}
-      {opened == WindowContent.ContentDummy && (
-        <BWindow title="Something" onClose={closeWindow}>
-          ...?
+      {opened == WindowContent.ContentGrave && (
+        <BWindow title="Memorial" onClose={closeWindow}>
+          <Grave />
         </BWindow>
       )}
       {opened == WindowContent.ContentCollage && (
         <BWindow title="THE ZEA ZONE" onClose={closeWindow}>
           <Collage />
+        </BWindow>
+      )}
+      {opened == WindowContent.ContentDummy && (
+        <BWindow title="Something" onClose={closeWindow}>
+          ...?
         </BWindow>
       )}
       <BEAChatBot />
