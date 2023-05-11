@@ -14,6 +14,7 @@ import { usePersistState } from '@zgd/hooks/usePersistState'
 import iconMessages from '@zgd/images/icon_messages.png'
 import iconGifts from '@zgd/images/icon_gifts.png'
 import iconCalendar from '@zgd/images/icon_calendar.png'
+import iconCollage from '@zgd/images/icon_zeazone.gif'
 
 enum WindowContent {
   ContentSplashScreen,
@@ -75,7 +76,7 @@ export const Desktop = (): JSX.Element => {
           className="desktopItem cursorPointer"
           onClick={selectContent(WindowContent.ContentCollage)}
         >
-          <div className="icon" />
+          <img src={iconCollage} className="icon" />
           <div className="name">THE ZEA ZONE</div>
         </div>
       </div>
