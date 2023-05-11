@@ -18,10 +18,7 @@ module.exports = () => {
         {
           test: /\.(ts|tsx)$/i,
           loader: 'ts-loader',
-          exclude: [
-            '/node_modules/',
-            '/.yarn/',
-          ],
+          exclude: ['/node_modules/', '/.yarn/'],
         },
         {
           test: /\.css$/i,
