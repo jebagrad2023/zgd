@@ -87,6 +87,10 @@ h1 {
   padding: 16px;
   height: 100%;
   overflow: scroll;
+
+  &.noPadding {
+    padding: 0;
+  }
 }
 
 .desktopItems {

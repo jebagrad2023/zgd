@@ -109,12 +109,12 @@ export const Desktop = (): JSX.Element => {
         </BWindow>
       )}
       {opened == WindowContent.ContentGrave && (
-        <BWindow title="Memorial" onClose={closeWindow}>
+        <BWindow title="Memorial" onClose={closeWindow} noPadding>
           <Grave />
         </BWindow>
       )}
       {opened == WindowContent.ContentCollage && (
-        <BWindow title="THE ZEA ZONE" onClose={closeWindow}>
+        <BWindow title="THE ZEA ZONE" onClose={closeWindow} noPadding>
           <Collage />
         </BWindow>
       )}

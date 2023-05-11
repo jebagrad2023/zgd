@@ -6,16 +6,24 @@ type Props = {
   title: string
   children: React.ReactNode
   onClose: () => void
+  noPadding?: boolean
 }
 
-export const BWindow = ({ title, children, onClose }: Props): JSX.Element => (
+export const BWindow = ({
+  title,
+  children,
+  onClose,
+  noPadding = false,
+}: Props): JSX.Element => (
   <div id="windowOuter">
     <div id="windowInner">
       <Header>
         {title}
         <div id="closeWindow" onClick={onClose} className="cursorPointer" />
       </Header>
-      <div id="contents">{children}</div>
+      <div id="contents" className={noPadding ? 'noPadding' : ''}>
+        {children}
+      </div>
     </div>
   </div>
 )
