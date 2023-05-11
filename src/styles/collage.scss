@@ -1,0 +1,26 @@
+.scrolling-image-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+@keyframes slide {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(-50%); /* The image width */
+  }
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+.scrolling-image {
+  background: url("./images/zeacollagesmaller.png") repeat-x;
+  background-size: contain;
+  height: 100%;
+  aspect-ratio: 224 / 9;
+  animation: slide 60s linear infinite;
+}
