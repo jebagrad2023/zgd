@@ -3,6 +3,7 @@ import React from 'react'
 import { MessageBoard } from '@zgd/components/organisms/MessageBoard'
 import { Calendar } from '@zgd/components/organisms/Calendar'
 import { Downloads } from '@zgd/components/organisms/Downloads'
+import { Collage } from '@zgd/components/organisms/Collage'
 import { BWindow } from '@zgd/components/organisms/BWindow'
 import { SplashScreen } from '@zgd/components/organisms/SplashScreen'
 import { BEAChatBot } from '@zgd/components/organisms/BEAChatBot'
@@ -21,6 +22,7 @@ enum WindowContent {
   ContentDownloads,
   ContentCalendar,
   ContentDummy,
+  ContentCollage,
 }
 
 export const Desktop = (): JSX.Element => {
@@ -69,6 +71,13 @@ export const Desktop = (): JSX.Element => {
           <div className="icon" />
           <div className="name">Something</div>
         </div>
+        <div
+          className="desktopItem cursorPointer"
+          onClick={selectContent(WindowContent.ContentCollage)}
+        >
+          <div className="icon" />
+          <div className="name">THE ZEA ZONE</div>
+        </div>
       </div>
       <div className="desktopCounter">
         <AccessCounter />
@@ -91,6 +100,11 @@ export const Desktop = (): JSX.Element => {
       {opened == WindowContent.ContentDummy && (
         <BWindow title="Something" onClose={closeWindow}>
           ...?
+        </BWindow>
+      )}
+      {opened == WindowContent.ContentCollage && (
+        <BWindow title="THE ZEA ZONE" onClose={closeWindow}>
+          <Collage />
         </BWindow>
       )}
       <BEAChatBot />
