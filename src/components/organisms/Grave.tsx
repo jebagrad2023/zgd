@@ -1,9 +1,12 @@
 import React, { useEffect, useRef } from 'react'
 
+import { usePersistState } from '@zgd/hooks/usePersistState'
+
 import MemorialFrame from '@zgd/images/zeaframewiggle1.gif'
 import zeaGhost from '@zgd/images/zea_ghost.png'
 
 export const Grave = (): JSX.Element => {
+  const [clickedCnt, setClickedCnt] = usePersistState('GhostClickedCount', 0)
   const ghost = useRef<HTMLImageElement>()
 
   useEffect(() => {
@@ -30,6 +33,12 @@ export const Grave = (): JSX.Element => {
     return () => clearTimeout(timer)
   }, [ghost])
 
+  const clickGhost = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setClickedCnt((n) => n + 1)
+    ghost.current.style.display = 'none'
+  }
+
   return (
     <div className="graveBG">
       <div className="graveContents">
@@ -39,9 +48,16 @@ export const Grave = (): JSX.Element => {
         </div>
         <img src={MemorialFrame} className="frame" /> <br />
         <div className="bottomMemorialTitle">2019 - 2023</div>
+        {clickedCnt > 0 && (
+          <div id="zeaGhostClickCnt">YOU HUNTED {clickedCnt} GHOSTS</div>
+        )}
       </div>
       <div id="zeaGhost" ref={ghost}>
-        <img src={zeaGhost} />
+        <img
+          src={zeaGhost}
+          className="cursorPointer"
+          onMouseDown={clickGhost}
+        />
       </div>
     </div>
   )

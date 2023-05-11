@@ -39,6 +39,13 @@
   }
 }
 
+#zeaGhostClickCnt {
+  font-family: 'PixelMplus12 Bold';
+  text-align: center;
+  padding-top: 20px;
+  font-size: 20px;
+}
+
 @keyframes ghostPassingByX {
   0% {
     transform: translateX(0);
