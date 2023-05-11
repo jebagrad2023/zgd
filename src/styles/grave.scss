@@ -25,3 +25,52 @@
 .bottomMemorialTitle {
   text-align: center;
 }
+
+#zeaGhost {
+  display: none;
+  position: fixed;
+  left: 0;
+
+  animation: ghostPassingByX 3s linear;
+
+  img {
+    animation: ghostPassingByY 1.8s ease-in-out infinite,
+      ghostOpaque 2.5s ease-in-out infinite;
+  }
+}
+
+@keyframes ghostPassingByX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100vw));
+  }
+}
+
+@keyframes ghostPassingByY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(64px);
+  }
+}
+
+@keyframes ghostOpaque {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  30%,
+  60%,
+  100% {
+    opacity: 0.15;
+  }
+  10%,
+  50%,
+  80% {
+    opacity: 0.3;
+  }
+}
