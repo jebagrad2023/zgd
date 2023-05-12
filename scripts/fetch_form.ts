@@ -3,11 +3,7 @@ const csv = require('csv/sync')
 const fsPromise = require('node:fs/promises')
 const rateLimit = require('axios-rate-limit')
 
-const PUBLIC_DOMAIN = process.env.PUBLIC_DOMAIN
-if (!PUBLIC_DOMAIN) {
-  throw new Error('PUBLIC_DOMAIN not provided')
-}
-
+const PUBLIC_DOMAIN = process.env.PUBLIC_DOMAIN || 'zeacornelia.com'
 const MESSAGES_CSV_URL = process.env.MESSAGES_CSV_URL
 if (!MESSAGES_CSV_URL) {
   throw new Error('MESSAGES_CSV_URL not provided')
@@ -17,7 +13,7 @@ const http = rateLimit(axios.create(), {
   maxRequests: 2,
 })
 
-const imagesDir = 'data/messages'
+const imagesDir = 'public/messages'
 const regexpDriveId = /^.*\?id=([-_a-zA-Z0-9]*)$/
 
 type Message = {
