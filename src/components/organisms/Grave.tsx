@@ -49,7 +49,7 @@ export const Grave = (): JSX.Element => {
         <img src={MemorialFrame} className="frame" /> <br />
         <div className="bottomMemorialTitle">2019 - 2023</div>
         {clickedCnt > 0 && (
-          <div id="zeaGhostClickCnt">YOU HUNTED {clickedCnt} GHOSTS</div>
+          <div id="zeaGhostClickCnt">YOU GOT {clickedCnt} GHOSTS</div>
         )}
       </div>
       <div id="zeaGhost" ref={ghost}>
