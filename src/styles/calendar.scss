@@ -64,33 +64,39 @@
   &.today {
     background-color: #ff9;
 
-    animation-name: todayIsZeaBirthday;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
+    animation: todayIsZeaBirthday 1s infinite;
   }
 
   &:hover {
-    border-width: 6px;
+    animation: focusedDay 1s infinite;
+  }
+
+  &.today:hover {
+    animation: focusedDay 1s infinite, todayIsZeaBirthday 1s infinite;
   }
 }
 
 @keyframes todayIsZeaBirthday {
   0%,
   100% {
-    transform: rotate(0deg);
+    transform: rotate(6deg);
     border-color: #f90;
   }
-  25% {
-    transform: rotate(6deg);
-    border-color: #f00;
-  }
   50% {
-    transform: rotate(0deg);
+    transform: rotate(-6deg);
     border-color: #9f0;
   }
-  75% {
-    transform: rotate(-6deg);
-    border-color: #0f0;
+}
+
+@keyframes focusedDay {
+  0%,
+  100% {
+    transform: scale(1);
+    border-width: 4px;
+  }
+  50% {
+    transform: scale(1.05);
+    border-width: 6px;
   }
 }
 

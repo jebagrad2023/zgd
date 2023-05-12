@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
@@ -45,10 +45,10 @@ export const Calendar = (): JSX.Element => {
       ? 29
       : days[month - 1]
 
-  const cells = [
+  const [cells, setCells] = useState(() => [
     ...Array.from({ length: startDoW }, () => null),
-    ...Array.from({ length: ds }, (_, i) => i),
-  ]
+    ...Array.from({ length: ds }, (_, i) => (i + 1 === date ? 0 : i + 1)),
+  ])
 
   return (
     <>
@@ -74,21 +74,27 @@ export const Calendar = (): JSX.Element => {
         </p>
       </div>
       <div id="calendarOuter">
-        {cells.map((v, i) => (
-          <div
-            className={`calendarDay dayOfWeek${i % 7} ${
-              v === null ? 'notThisMonth' : ''
-            } ${v + 1 === date ? 'today' : ''}`}
-            key={i}
-          >
-            <div className="calendarDayNumber">
-              {v + 1 === date ? 29 : v + 1}
+        {cells.map((v, i) => {
+          const click = () =>
+            setCells((c) => {
+              c[i] = 0
+              return [...c]
+            })
+          return (
+            <div
+              className={`calendarDay dayOfWeek${i % 7} ${
+                v === null ? 'notThisMonth' : ''
+              } ${v === 0 ? 'today' : ''}`}
+              key={i}
+              onClick={click}
+            >
+              <div className="calendarDayNumber">{v === 0 ? 29 : v}</div>
+              <div className="calendarDayDescription">
+                {v === 0 ? "ZEA's Birthday!!" : ''}
+              </div>
             </div>
-            <div className="calendarDayDescription">
-              {v + 1 === date ? "ZEA's Birthday!!" : ''}
-            </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
       <div id="calendarFooter" />
     </>
