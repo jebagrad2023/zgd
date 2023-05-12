@@ -13,7 +13,7 @@ const chatDatabase: ChatData[] = [
     output: ['gws', 'In fact... *redacted*', '...'],
   },
   {
-    match: /[zj]eb?a/i,
+    match: /([zj]eb?a|cornelia)/i,
     output: [
       'Here lies ZEA Cornelia',
       'She was the amazingly sweet and talented automaton',
@@ -30,8 +30,8 @@ const chatDatabase: ChatData[] = [
     output: ['Wangy wangy', 'Hu ha hu ha', 'くんかくんか'],
   },
   { match: /^boo!?$/i, output: ['Ba!'] },
-  { match: /^kok$/i, output: ['Dong'] },
-  { match: /^dong/i, output: ['Kok'] },
+  { match: /\bkok\b/i, output: ['Dong'] },
+  { match: /\bdong\b/i, output: ['Kok'] },
   {
     match: /today.*\?/i,
     output: [
@@ -42,6 +42,9 @@ const chatDatabase: ChatData[] = [
     match: /ghost.*\?/i,
     output: ['Ghost? What ghost?', 'I caught some', 'Where ghosts appear?'],
   },
+  { match: /corn/i, output: ['Praise the Corn!'] },
+  { match: /pipis/i, output: ['Air Sini*'] },
+  { match: /\bpon\b/i, output: ['PON!', 'Did u called ZEA?'] },
 ]
 
 const cmdRegexp = {
