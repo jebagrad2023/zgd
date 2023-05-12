@@ -21,7 +21,10 @@ const chatDatabase: ChatData[] = [
     ],
   },
   { match: /bea/i, output: ['Heh', 'Here BEA am'] },
-  { match: /what'?s?\s*pop+ing?/i, output: ["What's poppin!"] },
+  {
+    match: /what'?s?\s*pop+in[g']?/i,
+    output: ["What's poppin!", 'Your kneecaps'],
+  },
   {
     match: /wang[iy]/i,
     output: ['Wangy wangy', 'Hu ha hu ha', 'くんかくんか'],
@@ -29,6 +32,16 @@ const chatDatabase: ChatData[] = [
   { match: /^boo!?$/i, output: ['Ba!'] },
   { match: /^kok$/i, output: ['Dong'] },
   { match: /^dong/i, output: ['Kok'] },
+  {
+    match: /today.*\?/i,
+    output: [
+      "TODAY IS AUGUST 29. TODAY IS ZEA'S BIRTHDAY. TODAY IS JUDGEMENT DAY.",
+    ],
+  },
+  {
+    match: /ghost.*\?/i,
+    output: ['Ghost? What ghost?', 'I caught some', 'Where ghosts appear?'],
+  },
 ]
 
 const cmdRegexp = {
