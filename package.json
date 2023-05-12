@@ -8,7 +8,7 @@
     "lint": "eslint './src/**/*.{js,ts,tsx}'",
     "fix": "eslint --fix './src/**/*.{js,ts,tsx}'",
     "typecheck": "tsc --noEmit",
-    "messages": "mkdir -p data && ts-node scripts/fetch_form.ts | tee data/messages.json"
+    "messages": "ts-node scripts/fetch_form.ts | jq | tee public/messages.json"
   },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.21.0",
