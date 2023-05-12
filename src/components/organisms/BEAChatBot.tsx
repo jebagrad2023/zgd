@@ -67,6 +67,7 @@ export const BEAChatBot = (): JSX.Element => {
 
   const answer = useCallback(
     (s: string, wait: number, onDone?: () => void) => {
+      setBeaTextStamp(null)
       if (wait > 0) {
         setBeaText('...')
       }
