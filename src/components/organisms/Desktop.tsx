@@ -24,7 +24,6 @@ enum WindowContent {
   ContentMessages,
   ContentDownloads,
   ContentCalendar,
-  ContentDummy,
   ContentCollage,
   ContentGrave,
 }
@@ -82,13 +81,6 @@ export const Desktop = (): JSX.Element => {
           <img src={iconCollage} className="icon" />
           <div className="name">THE ZEA ZONE</div>
         </div>
-        <div
-          className="desktopItem cursorPointer"
-          onClick={selectContent(WindowContent.ContentDummy)}
-        >
-          <div className="icon" />
-          <div className="name">Something</div>
-        </div>
       </div>
       <div className="desktopCounter">
         <AccessCounter />
@@ -116,11 +108,6 @@ export const Desktop = (): JSX.Element => {
       {opened == WindowContent.ContentCollage && (
         <BWindow title="THE ZEA ZONE" onClose={closeWindow} noPadding>
           <Collage />
-        </BWindow>
-      )}
-      {opened == WindowContent.ContentDummy && (
-        <BWindow title="Something" onClose={closeWindow}>
-          ...?
         </BWindow>
       )}
       <BEAChatBot />
