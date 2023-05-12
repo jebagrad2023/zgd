@@ -51,15 +51,15 @@ export const MessageBoard = (): JSX.Element => {
     },
   )
 
-  const numColumns = 3
-  const messagesPerColumn = !messages
-    ? 0
-    : Math.ceil(messages.length / numColumns)
+  const col1 = 58
+  const col2 = 49
   const columns = !messages
     ? []
-    : Array.from(Array(numColumns).keys()).map((i) =>
-        messages.slice(i * messagesPerColumn, (i + 1) * messagesPerColumn),
-      )
+    : [
+        messages.slice(0, col1),
+        messages.slice(col1, col1 + col2),
+        messages.slice(col1 + col2),
+      ]
   return (
     <>
       <div id="messageBoard">
