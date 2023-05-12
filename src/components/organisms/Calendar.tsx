@@ -77,14 +77,15 @@ export const Calendar = (): JSX.Element => {
         {cells.map((v, i) => (
           <div
             className={`calendarDay dayOfWeek${i % 7} ${
-              v === null && 'notThisMonth'
-            } ${v + 1 === date && 'today'}`}
+              v === null ? 'notThisMonth' : ''
+            } ${v + 1 === date ? 'today' : ''}`}
+            key={i}
           >
             <div className="calendarDayNumber">
               {v + 1 === date ? 29 : v + 1}
             </div>
             <div className="calendarDayDescription">
-              {v + 1 === date && "ZEA's Birthday!!"}
+              {v + 1 === date ? "ZEA's Birthday!!" : ''}
             </div>
           </div>
         ))}
