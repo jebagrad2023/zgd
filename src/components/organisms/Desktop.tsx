@@ -33,7 +33,7 @@ export const Desktop = (): JSX.Element => {
   const [opened, setOpened] = usePersistState(
     'OpenedWindowContent',
     WindowContent.ContentSplashScreen,
-    window.performance.navigation.type !== 1,
+    true, //window.performance.navigation.type !== 1,
   )
   const closeWindow = () => setOpened(() => WindowContent.ContentNone)
   const selectContent = (c: WindowContent) => () => setOpened(() => c)

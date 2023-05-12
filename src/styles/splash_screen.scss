@@ -1,4 +1,14 @@
-div#splashScreen {
+#splashOuterScreen {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #000;
+}
+
+#splashScreen {
   position: absolute;
   top: 0;
   left: 0;
@@ -35,6 +45,174 @@ div#splashScreen {
       width: 8.8%;
       float: left;
       margin-right: 1.6%;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  #splashScreen {
+    top: 92px;
+    left: 60px;
+    bottom: 40px;
+    right: 60px;
+
+    transition: top 1s linear, left 1s linear, right 1s linear, bottom 1s linear;
+  }
+
+  #splashFrameAntenna {
+    position: absolute;
+    left: 50%;
+    margin-left: -200px;
+    top: 0;
+    height: 92px;
+    width: 436px;
+    background-image: url('@zgd/images/bea_frame_antenna.png');
+    background-size: 436px 92px;
+
+    transition: all 1s linear;
+  }
+
+  #splashFrameTop {
+    position: absolute;
+    left: 72px;
+    right: 72px;
+    top: 92px;
+    height: 32px;
+    background-image: url('@zgd/images/bea_frame_top.png');
+    background-size: auto 32px;
+
+    transition: all 1s linear;
+  }
+
+  #splashFrameLeft {
+    position: absolute;
+    top: 184px;
+    left: 4px;
+    bottom: 48px;
+    width: 60px;
+    background-image: url('@zgd/images/bea_frame_left.png');
+    background-size: 60px auto;
+
+    transition: all 1s linear;
+  }
+
+  #splashFrameRight {
+    position: absolute;
+    top: 184px;
+    right: 4px;
+    bottom: 48px;
+    width: 60px;
+    background-image: url('@zgd/images/bea_frame_right.png');
+    background-size: 60px auto;
+
+    transition: all 1s linear;
+  }
+
+  #splashFrameBottom {
+    position: absolute;
+    left: 72px;
+    right: 72px;
+    bottom: 8px;
+    height: 32px;
+    background-image: url('@zgd/images/bea_frame_bottom.png');
+    background-size: auto 32px;
+
+    transition: all 1s linear;
+  }
+
+  #splashFrameLT {
+    position: absolute;
+    left: 4px;
+    top: 92px;
+    width: 68px;
+    height: 92px;
+    background-image: url('@zgd/images/bea_frame_lt.png');
+    background-size: 68px 92px;
+
+    transition: all 1s linear;
+  }
+
+  #splashFrameRT {
+    position: absolute;
+    right: 4px;
+    top: 92px;
+    width: 68px;
+    height: 92px;
+    background-image: url('@zgd/images/bea_frame_rt.png');
+    background-size: 68px 92px;
+
+    transition: all 1s linear;
+  }
+
+  #splashFrameLB {
+    position: absolute;
+    left: 4px;
+    bottom: 12px;
+    width: 68px;
+    height: 36px;
+    background-image: url('@zgd/images/bea_frame_lb.png');
+    background-size: 68px 36px;
+
+    transition: all 1s linear;
+  }
+
+  #splashFrameRB {
+    position: absolute;
+    right: 4px;
+    bottom: 12px;
+    width: 68px;
+    height: 36px;
+    background-image: url('@zgd/images/bea_frame_rb.png');
+    background-size: 68px 36px;
+
+    transition: all 1s linear;
+  }
+
+  .zoomOut {
+    #splashScreen {
+      top: -44px;
+      left: -8px;
+      right: -8px;
+      bottom: -5px;
+    }
+    #splashFrameAntenna {
+      top: -150px;
+    }
+    #splashFrameTop {
+      top: -92px;
+      left: 0;
+      right: 0;
+    }
+    #splashFrameLeft {
+      top: 0;
+      left: -68px;
+      bottom: 0;
+    }
+    #splashFrameRight {
+      top: 0;
+      right: -68px;
+      bottom: 0;
+    }
+    #splashFrameBottom {
+      bottom: -36px;
+      left: 0;
+      right: 0;
+    }
+    #splashFrameLT {
+      left: -68px;
+      top: -92px;
+    }
+    #splashFrameRT {
+      right: -68px;
+      top: -92px;
+    }
+    #splashFrameLB {
+      left: -68px;
+      bottom: -36px;
+    }
+    #splashFrameRB {
+      right: -68px;
+      bottom: -36px;
     }
   }
 }
