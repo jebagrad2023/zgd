@@ -5,8 +5,7 @@ import { ZoomableImage } from '@zgd/components/organisms/ZoomableImage'
 
 import { fetcher } from '@zgd/utils/fetcher'
 
-const messagesURL =
-  'https://raw.githubusercontent.com/Doramanjyu/zgd/data/messages.json'
+const messagesURL = 'messages.json'
 
 type MessageProps = {
   name: string
