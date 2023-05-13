@@ -37,8 +37,8 @@ jobs:
       - name: Prepare deploy
         run: |
           mkdir -p gh-pages/public
-          cp -r public/* gh-pages/
-          cp -r dist/* gh-pages/public/
+          cp -ra public/* gh-pages/
+          cp -ra dist/* gh-pages/public/
 
       - name: Check deployable
         id: deployable
@@ -65,7 +65,7 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_ASSUME_ROLE }}
           aws-region: ${{ env.AWS_REGION }}
-      - name: Configure AWS credentials
+      - name: Configure AWS credentials (for dry-run)
         if: github.event_name == 'pull_request'
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -75,12 +75,12 @@ jobs:
         if: github.event_name != 'pull_request' && steps.deployable.outputs.deployable == 'true'
         run: |
           rm -rf gh-pages/.git
-          aws s3 sync --size-only gh-pages/ s3://jebagrad2023web/
-      - name: Upload
+          aws s3 sync gh-pages/ s3://jebagrad2023web/
+      - name: Upload (dry-run)
         if: github.event_name == 'pull_request'
         run: |
           rm -rf gh-pages/.git
-          aws s3 sync --size-only --dryrun gh-pages/ s3://jebagrad2023web/
+          aws s3 sync --dryrun gh-pages/ s3://jebagrad2023web/
 
   notification:
     needs: ci
