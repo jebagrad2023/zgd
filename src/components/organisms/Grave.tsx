@@ -44,9 +44,15 @@ export const Grave = (): JSX.Element => {
     ghost.current.style.display = 'none'
   }
 
+  const graveLiver = useRef<HTMLImageElement>()
   const showHideGrave = () => setShowGrave((v) => !v)
-  const onGraveLiverLoad = (e: React.SyntheticEvent<HTMLImageElement>) =>
-    setTimeout(() => (e.target as HTMLImageElement).scrollIntoView(), 50)
+  const onGraveLiverLoad = () => {
+    if (!graveLiver.current) {
+      return
+    }
+    const scrollContainer = document.getElementById('contents')
+    scrollContainer.scrollTop = graveLiver.current.scrollHeight
+  }
 
   return (
     <div className="graveBG">
@@ -67,8 +73,13 @@ export const Grave = (): JSX.Element => {
               className="graveLivers"
               src={zeaGraveLivers}
               onImageLoad={onGraveLiverLoad}
+              refImage={graveLiver}
             />
-            <ZoomableImage className="graveHer" src={zeaGraveHer} />
+            <ZoomableImage
+              className="graveHer"
+              src={zeaGraveHer}
+              onImageLoad={onGraveLiverLoad}
+            />
           </div>
         )}
         {clickedCnt > 0 && (
