@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { usePersistState } from '@zgd/hooks/usePersistState'
 import { ZoomableImage } from '@zgd/components/organisms/ZoomableImage'
@@ -11,6 +11,7 @@ import zeaGraveLivers from '@zgd/images/zea_grave_livers.png'
 
 export const Grave = (): JSX.Element => {
   const [clickedCnt, setClickedCnt] = usePersistState('GhostClickedCount', 0)
+  const [showGrave, setShowGrave] = useState(false)
   const ghost = useRef<HTMLImageElement>()
 
   useEffect(() => {
@@ -43,19 +44,9 @@ export const Grave = (): JSX.Element => {
     ghost.current.style.display = 'none'
   }
 
-  const showHideGrave = () => {
-    const images = document.querySelectorAll<HTMLElement>(
-      '.graveHer, .graveLivers',
-    )
-    const scrollContainer = document.getElementById('contents')
-    images.forEach((image) => {
-      const display = image.style.display === 'none' ? 'block' : 'none'
-      image.style.display = display
-      if (display === 'block') {
-        scrollContainer.scrollTop = scrollContainer.scrollHeight
-      }
-    })
-  }
+  const showHideGrave = () => setShowGrave((v) => !v)
+  const onGraveLiverLoad = (e: React.SyntheticEvent<HTMLImageElement>) =>
+    setTimeout(() => (e.target as HTMLImageElement).scrollIntoView(), 50)
 
   return (
     <div className="graveBG">
@@ -68,10 +59,18 @@ export const Grave = (): JSX.Element => {
         <img
           className="bottomMemorialTitle"
           src={zeaGraveMarker}
-          onClick={() => showHideGrave()}
+          onClick={showHideGrave}
         />
-        <ZoomableImage className="graveLivers" src={zeaGraveLivers} />
-        <ZoomableImage className="graveHer" src={zeaGraveHer} />
+        {showGrave && (
+          <div id="gravePics">
+            <ZoomableImage
+              className="graveLivers"
+              src={zeaGraveLivers}
+              onImageLoad={onGraveLiverLoad}
+            />
+            <ZoomableImage className="graveHer" src={zeaGraveHer} />
+          </div>
+        )}
         {clickedCnt > 0 && (
           <div id="zeaGhostClickCnt">YOU GOT {clickedCnt} GHOSTS</div>
         )}
