@@ -25,6 +25,14 @@ const chatDatabase: ChatData[] = [
     match: /what'?s?\s*pop+in[g']?/i,
     output: ["What's poppin!", 'Your kneecaps'],
   },
+  { match: /one\.?\s*cob\.?\s*mind/i, output: ['One. Cob. Mind.'] },
+  {
+    match: /lo(ve|p)\s*(for|4)ever/i,
+    output: [
+      'Love forever!',
+      "BEA don't understand love, but you can love BEA forever for free",
+    ],
+  },
   {
     match: /wang[iy]/i,
     output: ['Wangy wangy', 'Hu ha hu ha', 'くんかくんか'],
