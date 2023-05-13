@@ -50,8 +50,8 @@ export const MessageBoard = (): JSX.Element => {
     },
   )
 
-  const col1 = 58
-  const col2 = 49
+  const col1 = 59
+  const col2 = 50
   const columns = !messages
     ? []
     : [
