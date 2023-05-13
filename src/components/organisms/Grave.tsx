@@ -59,6 +59,12 @@ export const Grave = (): JSX.Element => {
           onMouseDown={clickGhost}
         />
       </div>
+      {clickedCnt > 0 && (
+        <div
+          id="orangGila"
+          style={{ opacity: (clickedCnt > 25 ? 25 : clickedCnt) * 0.02 }}
+        />
+      )}
     </div>
   )
 }
