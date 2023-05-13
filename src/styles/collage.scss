@@ -1,4 +1,5 @@
 .scrolling-image-container {
+  position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -18,9 +19,35 @@
 }
 
 .scrolling-image {
-  background: url("./images/zeacollagesmaller.png") repeat-x;
+  background: url('./images/zeacollagesmaller.png') repeat-x;
   background-size: contain;
   height: 100%;
   aspect-ratio: 224 / 9;
   animation: slide 60s linear infinite;
+}
+
+#hiddenLink {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  display: inline-block;
+  opacity: 0.05;
+  color: #fff;
+
+  &:hover {
+    animation: hiddenLinkOpacity 2s 1;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes hiddenLinkOpacity {
+  0% {
+    opacity: 0.05;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.05;
+  }
 }
