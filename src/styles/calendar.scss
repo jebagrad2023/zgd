@@ -57,7 +57,7 @@
   background-color: #ddd;
   padding: 8px;
   text-align: center;
-  height: 5em;
+  min-height: 5em;
   border: 4px solid #999;
   border-radius: 4px;
 
@@ -129,6 +129,13 @@
   font-family: 'PixelMplus12 Bold';
   color: #f00;
   padding: 8px 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 800px) {
+  .calendarDayDescription {
+    font-size: 75%;
+  }
 }
 
 #calendarFooter {
