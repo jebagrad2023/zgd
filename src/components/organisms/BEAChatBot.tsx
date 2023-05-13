@@ -8,10 +8,12 @@ type ChatData = {
 const chatDatabase: ChatData[] = [
   { match: /apa\s*kabar/i, output: ['B aja'] },
   { match: /h[ae][lm]?lo/i, output: ['Hemlo'] },
+  { match: /how'?\s*a?re\s*(yo)?u/i, output: ['BEA is doing great!'] },
   {
     match: /[zj]eb?a.*wang[iy]/i,
     output: ['gws', 'In fact... *redacted*', '...'],
   },
+  { match: /jebaited/i, output: ['Jebaited! Dudududu du duduu~'] },
   {
     match: /([zj]eb?a|cornelia)/i,
     output: [
@@ -33,6 +35,7 @@ const chatDatabase: ChatData[] = [
       "BEA don't understand love, but you can love BEA forever for free",
     ],
   },
+  { match: /\bnobi\b/i, output: ['Nobi nobiji           haha kena kau!'] },
   {
     match: /wang[iy]/i,
     output: ['Wangy wangy', 'Hu ha hu ha', 'くんかくんか'],
