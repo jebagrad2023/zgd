@@ -4,6 +4,10 @@
   font-family: 'PixelMplus12 Bold';
   font-size: 24px;
   margin-bottom: 16px;
+
+  &.everydayIsZeaBirthday {
+    animation: everydayIsZeaBirthday 1s infinite;
+  }
 }
 
 #calendarWhatsToday {
@@ -84,10 +88,21 @@
   }
   50% {
     transform: rotate(-6deg);
-    border-color: #9f0;
+    border-color: #cf0;
   }
 }
 
+@keyframes everydayIsZeaBirthday {
+  0%,
+  100% {
+    transform: rotate(4deg);
+    color: #f00;
+  }
+  50% {
+    transform: rotate(-4deg);
+    color: #f90;
+  }
+}
 @keyframes focusedDay {
   0%,
   100% {

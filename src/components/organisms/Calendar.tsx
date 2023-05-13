@@ -50,17 +50,22 @@ export const Calendar = (): JSX.Element => {
     ...Array.from({ length: ds }, (_, i) => (i + 1 === date ? 0 : i + 1)),
   ])
 
+  const everyday = cells.reduce((a, v) => (v === null ? a : a && v === 0), true)
+
   return (
     <>
       <div id="calendarOverlay">
         <Confetti
-          colors={['#fbec5d', '#f90']}
+          colors={everyday ? ['#fbec5d', '#f90', '#f00'] : ['#fbec5d', '#f90']}
           drawShape={drawDiamond}
           width={width}
           height={height}
+          numberOfPieces={everyday ? 500 : 150}
         />
       </div>
-      <div id="calendarTop">TODAY IS AUGUST 29 ({year})</div>
+      <div id="calendarTop" className={everyday ? 'everydayIsZeaBirthday' : ''}>
+        {everyday ? 'EVERYDAY IS AUGUST 29' : 'TODAY IS AUGUST 29'}
+      </div>
       <div id="calendarWhatsToday">
         <p>
           Watch today's ZEA Birthday Stream!
