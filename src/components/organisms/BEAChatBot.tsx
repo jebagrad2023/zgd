@@ -26,6 +26,7 @@ const chatDatabase: ChatData[] = [
     match: /\btell\b.*\bjoke\b/i,
     output: [
       'What happens when a kernel dies?                   They became Ker-NULL',
+      "What's the name of your land?                    NeoZEALand",
     ],
   },
   { match: /bea/i, output: ['Heh', 'Here BEA am'] },
