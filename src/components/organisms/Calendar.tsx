@@ -101,7 +101,6 @@ export const Calendar = (): JSX.Element => {
           )
         })}
       </div>
-      <div id="calendarFooter" />
     </>
   )
 }

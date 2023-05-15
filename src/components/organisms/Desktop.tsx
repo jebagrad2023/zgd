@@ -106,7 +106,7 @@ export const Desktop = (): JSX.Element => {
         </BWindow>
       )}
       {opened == WindowContent.ContentCollage && (
-        <BWindow title="THE ZEA ZONE" onClose={closeWindow} noPadding>
+        <BWindow title="THE ZEA ZONE" onClose={closeWindow} noPadding noScroll>
           <Collage />
         </BWindow>
       )}

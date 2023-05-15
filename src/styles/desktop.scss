@@ -53,6 +53,7 @@ h1 {
   background-size: auto 32px;
   padding: 2px 6px;
   border-bottom: 2px solid #ccc;
+  height: 28px;
 
   span.upper {
     font-size: 50%;
@@ -85,11 +86,17 @@ h1 {
 
 #contents {
   padding: 16px;
-  height: 100%;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  height: calc(100% - 28px);
 
   &.noPadding {
     padding: 0;
+  }
+
+  &.noScroll {
+    overflow-y: hidden;
   }
 }
 
