@@ -70,7 +70,7 @@ export const Calendar = (): JSX.Element => {
         <p>
           Watch today's ZEA Birthday Stream!
           <iframe
-            src="https://www.youtube.com/embed/Eva6LsMdBHg"
+            src="https://www.youtube.com/embed/GxmLJ-z-AcE"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
