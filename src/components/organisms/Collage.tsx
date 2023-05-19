@@ -15,7 +15,7 @@ export const Collage = (): JSX.Element => {
       'WARNING!!\nYou are entering to the [SECRET #ZEANGE ZONE].\nAre you a responsible adult?',
     )
     if (confirmed) {
-      window.location.href = 'https://youtu.be/8cOzNcHSDy4'
+      window.location.href = 'https://www.youtube.com/watch?v=-DzXlUVEft4'
     }
   }
   return (
