@@ -2472,10 +2472,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csv-parse@npm:^5.3.10":
-  version: 5.3.10
-  resolution: "csv-parse@npm:5.3.10"
-  checksum: 4d74c5912f9903b84ecca06399191b0fb5c9e7e7c2f02b845393393a2b66192e47e4c2bc8bd03f0c483108ae8e4367a46b1e5f945ded26b386ce9148c0239d14
+"csv-parse@npm:^5.4.0":
+  version: 5.4.0
+  resolution: "csv-parse@npm:5.4.0"
+  checksum: e9c2f23953f628849c476adeb9f500e9c03fcfe98fea7b732366e3c2ed0b07a5e67f32ca12a0132db6eb71601c080b4935b5921296db3625a597e24caa16f633
   languageName: node
   linkType: hard
 
@@ -2487,14 +2487,14 @@ __metadata:
   linkType: hard
 
 "csv@npm:^6.2.8":
-  version: 6.3.0
-  resolution: "csv@npm:6.3.0"
+  version: 6.3.1
+  resolution: "csv@npm:6.3.1"
   dependencies:
     csv-generate: ^4.2.6
-    csv-parse: ^5.3.10
+    csv-parse: ^5.4.0
     csv-stringify: ^6.4.0
     stream-transform: ^3.2.6
-  checksum: 4575b7c4dea2faf9f43bfd640f6fe09acc1265578d1604024b9ea37c253d04e1c2ac90e47835dd8693411a632d987a2f2fc4362e74075b5077314ae2b780a629
+  checksum: da1f7b10a7f387d3f49db06dde286b49c7136ac24684c1e528bcc8ef4080f29e353fdd19f624020f653805f91acbc30ed775642262424e7267455fe460cb2ba9
   languageName: node
   linkType: hard
 
