@@ -1459,10 +1459,10 @@ __metadata:
   linkType: hard
 
 "@webpack-cli/generators@npm:^3.0.1":
-  version: 3.0.4
-  resolution: "@webpack-cli/generators@npm:3.0.4"
+  version: 3.0.7
+  resolution: "@webpack-cli/generators@npm:3.0.7"
   dependencies:
-    webpack-cli: ^5.1.1
+    webpack-cli: ^5.1.4
     yeoman-environment: ^3.9.1
     yeoman-generator: ^5.7.0
   peerDependencies:
@@ -1471,7 +1471,7 @@ __metadata:
   peerDependenciesMeta:
     prettier:
       optional: true
-  checksum: eab76d415d37e15bdb5b0b71c7b0e5cd043ccfd324c0a7c0804b899e0f69668d1f79f0ec36927a9f54603861be5686db6697110174a8dfbd8f7f4ce3ecb63d7a
+  checksum: 1ec35fa2630e9ac0faba4af520ab3b1c5ee396eda250f8e08fcc3b2b92cd5ff90074d829172d0661b9b7a17fda819eb2128fd1aa85b5840aea2c11e662697d73
   languageName: node
   linkType: hard
 
@@ -7189,7 +7189,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-cli@npm:^5.0.1, webpack-cli@npm:^5.1.1":
+"webpack-cli@npm:^5.0.1, webpack-cli@npm:^5.1.4":
   version: 5.1.4
   resolution: "webpack-cli@npm:5.1.4"
   dependencies:
