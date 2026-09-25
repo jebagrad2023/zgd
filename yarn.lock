@@ -2521,36 +2521,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csv-generate@npm:^4.3.0":
-  version: 4.3.0
-  resolution: "csv-generate@npm:4.3.0"
-  checksum: cd0f7fe3d021010b683c618fcca165e4dcf3157ee7d514033d1baf4dfeee697228bdad9215ec85e962babd71e8dbd1bde67fdb50cf0aed99409f23ebefce0875
+"csv-generate@npm:^4.6.2":
+  version: 4.6.2
+  resolution: "csv-generate@npm:4.6.2"
+  checksum: f7a6c7833b8d4b7cf7ea09b3b4f88de69270fe1b0bfca61b36aadbd89d61f19f57f819620fe299f354a88f6525774c8e805f1363041281348c41d24a07e2dfce
   languageName: node
   linkType: hard
 
-"csv-parse@npm:^5.5.2":
-  version: 5.5.2
-  resolution: "csv-parse@npm:5.5.2"
-  checksum: de2eb0c29b049783ef101b7eb843456200dc9a4fc9f4b400473bb0521b41aadb77af560cf4edc49bac65cc457b32596519860120181b26ec3b372109ddf8e8ea
+"csv-parse@npm:^7.0.3":
+  version: 7.0.3
+  resolution: "csv-parse@npm:7.0.3"
+  checksum: f0c87af822c462b70a56590d57201bdfddcd5badb70e6eece8eadab462bd2646c46112627651f773ae2638f1ba682d286ae2925cf94919ff001e2b0cc48a3e10
   languageName: node
   linkType: hard
 
-"csv-stringify@npm:^6.4.4":
-  version: 6.4.4
-  resolution: "csv-stringify@npm:6.4.4"
-  checksum: cc0c0d49e32c2c862658cc45fa2e9668cd67d85ff7eb1f65de0383335aaaae53bf2fc73e8f8051ba8de50f8f5dbffd8f3686bdaa760363762bba02525fe61939
+"csv-stringify@npm:^6.9.0":
+  version: 6.9.0
+  resolution: "csv-stringify@npm:6.9.0"
+  checksum: d65bdd50ef785a4c1e9a2a421c428cf53b777bd9ae3b0d392dc010a38a5c6a7e896e61f93db81654378bdd1d5a4c75e6dab550eaf5adf1026f7f9cbed75e7a65
   languageName: node
   linkType: hard
 
 "csv@npm:^6.2.8":
-  version: 6.3.5
-  resolution: "csv@npm:6.3.5"
+  version: 6.6.4
+  resolution: "csv@npm:6.6.4"
   dependencies:
-    csv-generate: ^4.3.0
-    csv-parse: ^5.5.2
-    csv-stringify: ^6.4.4
-    stream-transform: ^3.2.10
-  checksum: ec54ebf4b213bdab3dc143aa36ca90ed4777cbd90580d4e44be2eb0cd85ef58c5a69726905d88930c02c262dca4815671b7efd06d72b6cd58fb96bc65cc86073
+    csv-generate: ^4.6.2
+    csv-parse: ^7.0.3
+    csv-stringify: ^6.9.0
+    stream-transform: ^3.6.0
+  checksum: c65d2a849b6ac76d06ff1eef056d5872645fb90d20248d79bdb53c130411ab1ec38467ae16c848d754a4bbec17da127429065328d0521d0bedc775663177f349
   languageName: node
   linkType: hard
 
@@ -6516,10 +6516,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stream-transform@npm:^3.2.10":
-  version: 3.2.10
-  resolution: "stream-transform@npm:3.2.10"
-  checksum: e2755beed075e4891db2be30ee5fcc925a6b332f88b66144ef0c035252347660d4a0131f291cba175eb6a8ff2ca0ac05931b464ad1a227d7d2cffd19ebe1d536
+"stream-transform@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "stream-transform@npm:3.6.0"
+  checksum: 91d9333efbd014329c235896a774f463e01d43f3a0cc024f882c13c1a26d60b31e5f889d6c74afe95be009ed50fb1fe193edad418d623e61362cf2cee7873a9b
   languageName: node
   linkType: hard
 
